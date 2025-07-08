@@ -1,0 +1,1 @@
+2025/07/08 11:46:25 [error] 4448#7960: *1 CreateFile() "D:\JAVA\Education-System\nginx-1.28.0/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"

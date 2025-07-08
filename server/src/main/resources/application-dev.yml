@@ -1,0 +1,13 @@
+edu:
+  datasource:
+
+    host: localhost
+    port: 3306
+    database: edu_sys
+    username: root
+    password: a1b2c3d4e5
+  alioss:
+    bucket-name: sky-take-out-kirin
+    access-key-secret: QDNUdeIFth8YLjEfEFqeQlRX9ZVVXl
+    access-key-id: LTAI5t7LAujZquTbvQfGy5ny
+    endpoint: oss-cn-hangzhou.aliyuncs.com
