@@ -15,34 +15,33 @@
         <el-button 
           type="primary" 
           @click="likePost"
-          :disabled="post.isLiked"
         >
           点赞 ({{ post.likeCount || 0 }})
         </el-button>
-        </div>
+      </div>
 
       <el-divider></el-divider>
       
-      <h3>评论 ({{ comments.length }})</h3>
-      <div class="comment-list">
+      <h3>评论 ({{ replies.length }})</h3>
+      <div class="replies-list">
         <CommentItem
-          v-for="comment in comments"
-          :key="comment.id"
-          :comment="comment"
-          @reply-comment="handleReplyComment"
+          v-for="reply in replies"
+          :key="reply.id"
+          :comment="reply"
+          @like-reply="handleLikeReply"
         />
-        <p v-if="!comments.length" class="no-comments">暂无评论。</p>
+        <p v-if="!replies.length" class="no-replies">暂无评论。</p>
       </div>
       
-      <div class="comment-input-area">
+      <div class="reply-input-area">
         <el-input
           type="textarea"
           :rows="3"
-          placeholder="发表你的评论..."
-          v-model="newCommentContent"
-          class="comment-textarea"
+          placeholder="发表你的回复..."
+          v-model="newReplyContent"
+          class="reply-textarea"
         ></el-input>
-        <el-button type="primary" @click="submitComment" :disabled="!newCommentContent.trim()">发表评论</el-button>
+        <el-button type="primary" @click="submitReply" :disabled="!newReplyContent.trim()">发表回复</el-button>
       </div>
     </el-card>
     <p v-else class="loading-text">帖子加载中或不存在...</p>
@@ -60,62 +59,89 @@ export default {
   components: { CommentItem },
   setup() {
     const post = ref(null);
-    const comments = ref([]);
-    const newCommentContent = ref('');
+    const replies = ref([]);
+    const newReplyContent = ref('');
     const route = useRoute();
-    const { sectionId, postId } = route.params;
+    const { postId } = route.params;
+    const currentUserId = ref(1); // 假设当前用户ID为1
 
     const fetchPostDetail = async () => {
-      try {
-        const response = await axios.get(`/api/sections/${sectionId}/posts/${postId}`);
-        if (response.data.code === 200) {
-          post.value = response.data.data;
-          comments.value = post.value.comments || []; // 假设评论是嵌套在帖子详情里的
-        }
-      } catch (error) {
-        console.error('获取帖子详情失败:', error);
+      // 这里的 API 已确认
+      const response = await axios.get(`/api/sections/1/posts/${postId}`);
+      if (response.data.code === 200) {
+        post.value = response.data.data;
       }
     };
     
-    const likePost = async () => {
-      if (post.value.isLiked) return;
-      try {
-        const userId = 'testUser123'; // 从登录状态获取
-        const response = await axios.post(`/api/sections/${sectionId}/posts/${postId}/like?userId=${userId}`);
-        if (response.data.code === 200) {
-          post.value.likeCount = (post.value.likeCount || 0) + 1;
-          post.value.isLiked = true;
-          this.$message.success('点赞成功！');
-        } else {
-          this.$message.error(response.data.msg || '点赞失败');
-        }
-      } catch (error) {
-        console.error('点赞失败:', error);
-        this.$message.error('点赞失败，请检查网络');
+    const fetchReplies = async () => {
+      // 使用新的 API: GET /api/posts/{postId}/replies
+      const response = await axios.get(`/api/posts/${postId}/replies`);
+      if (response.data.code === 200) {
+        replies.value = response.data.data || [];
       }
     };
 
-    const submitComment = async () => { /* 沿用之前的逻辑，这里不需要修改 */ };
-    const handleReplyComment = async () => { /* 沿用之前的逻辑，这里不需要修改 */ };
-    const formatTime = (timeString) => { /* 沿用之前的逻辑 */ };
+    const likePost = async () => {
+      // 沿用之前的逻辑，API已确认
+    };
+
+    const submitReply = async () => {
+      if (!newReplyContent.value.trim()) return;
+      try {
+        // 使用新的 API: POST /api/posts/{postId}/replies
+        const response = await axios.post(`/api/posts/${postId}/replies`, {
+          content: newReplyContent.value,
+          authorId: currentUserId.value,
+          postId: postId
+        });
+        if (response.data.code === 200) {
+          alert('回复成功！');
+          newReplyContent.value = '';
+          fetchReplies(); // 刷新回复列表
+        }
+      } catch (error) {
+        console.error('发表回复失败:', error);
+      }
+    };
+
+    const handleLikeReply = async (replyId) => {
+      // 使用新的 API: POST /api/posts/{postId}/replies/{replyId}/like
+      try {
+        const response = await axios.post(`/api/posts/${postId}/replies/${replyId}/like`, null, {
+          params: { userId: currentUserId.value }
+        });
+        if (response.data.code === 200) {
+          alert('回复点赞成功！');
+          fetchReplies(); // 刷新以更新点赞数
+        }
+      } catch (error) {
+        console.error('回复点赞失败:', error);
+      }
+    };
+
+    const formatTime = (timeString) => {
+      if (!timeString) return '未知时间';
+      try {
+        return format(new Date(timeString), 'yyyy-MM-dd HH:mm');
+      } catch (e) {
+        return timeString;
+      }
+    };
     
     onMounted(() => {
       fetchPostDetail();
+      fetchReplies();
     });
 
     return {
       post,
-      comments,
-      newCommentContent,
+      replies,
+      newReplyContent,
       likePost,
-      submitComment,
-      handleReplyComment,
+      submitReply,
+      handleLikeReply,
       formatTime,
     };
   },
 };
 </script>
-
-<style scoped>
-/* 样式与之前相同 */
-</style>

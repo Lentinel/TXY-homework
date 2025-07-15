@@ -1,62 +1,54 @@
 <template>
   <div class="comment-item">
     <div class="comment-main">
-      <p><strong>{{ comment.authorName }}</strong>: {{ comment.content }}</p>
-      <span class="comment-time">{{ comment.createTime }}</span>
-      <el-button type="text" size="mini" @click="showReplyInput = !showReplyInput">回复</el-button>
-    </div>
-    <div v-if="showReplyInput" class="reply-input-area">
-      <el-input
-        type="textarea"
-        :rows="2"
-        placeholder="回复此评论..."
-        v-model="replyContent"
-        class="reply-input"
-      ></el-input>
-      <el-button type="primary" size="mini" @click="submitReply" :disabled="!replyContent.trim()">提交回复</el-button>
-      <el-button size="mini" @click="showReplyInput = false">取消</el-button>
-    </div>
-    <div v-if="comment.replies && comment.replies.length" class="replies-list">
-      <CommentItem
-        v-for="reply in comment.replies"
-        :key="reply.id"
-        :comment="reply"
-        @reply-comment="handleNestedReply"
-        class="nested-reply"
-      />
+      <p>
+        <strong>{{ comment.authorName || '匿名用户' }}</strong>: {{ comment.content }}
+      </p>
+      <div class="comment-meta">
+        <span class="comment-time">{{ formatTime(comment.createTime) }}</span>
+        <el-button type="text" size="mini" @click="$emit('like-reply', comment.id)">
+          点赞 ({{ comment.likeCount || 0 }})
+        </el-button>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
+import { format } from 'date-fns';
+
 export default {
-  name: 'CommentItem',
+  name: 'CommentItem', 
   props: {
     comment: {
       type: Object,
       required: true
-    }
+    },
   },
-  data() {
+  setup(props, { emit }) {
+    const formatTime = (timeString) => {
+      if (!timeString) return '未知时间';
+      try {
+        return format(new Date(timeString), 'yyyy-MM-dd HH:mm');
+      } catch (e) {
+        return timeString;
+      }
+    };
+
+    // 此处不再处理楼中楼回复，仅提供点赞功能
+    const handleLike = () => {
+      emit('like-reply', props.comment.id);
+    };
+
     return {
-      showReplyInput: false,
-      replyContent: '',
+      formatTime,
+      handleLike
     };
   },
-  methods: {
-    submitReply() {
-      // 触发父组件的回复事件，将评论ID和回复内容传出去
-      this.$emit('reply-comment', this.comment.id, this.replyContent);
-      this.replyContent = '';
-      this.showReplyInput = false;
-    },
-    handleNestedReply(commentId, replyContent) {
-      // 如果是嵌套回复，继续向上触发，直到 PostDetail.vue 处理
-      this.$emit('reply-comment', commentId, replyContent);
-    }
-  }
 };
 </script>
+
+
 
 <style scoped>
 .comment-item {
