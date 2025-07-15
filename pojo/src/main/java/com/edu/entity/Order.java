@@ -1,9 +1,17 @@
 package com.edu.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Order {
     private String orderNo;
     private Long userId;
@@ -27,6 +35,5 @@ public class Order {
     private List<PaymentRecord> paymentRecords;
 
     // 关联优惠券
-    private UserCoupon userCoupon;
 
 }

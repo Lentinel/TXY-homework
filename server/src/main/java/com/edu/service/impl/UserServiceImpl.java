@@ -4,11 +4,14 @@ import com.edu.Exception.LoginException;
 import com.edu.Exception.PasswordErrorException;
 import com.edu.Exception.RegisterErrorException;
 import com.edu.constant.MessageConstant;
+import com.edu.constant.UserTypeConstant;
 import com.edu.dto.*;
 import com.edu.entity.User;
 import com.edu.mapper.UserMapper;
 import com.edu.result.PageResult;
 import com.edu.service.UserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,17 +82,42 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PageResult getUsers(UserPageQueryDTO userPageQueryDTO) {
-        return null;
+
+            PageHelper.startPage(userPageQueryDTO.getPage(),userPageQueryDTO.getPageSize());
+            //下一条sql进行分页，自动加入limit关键字分页
+            Page<User> page = userMapper.pageQuery(userPageQueryDTO);
+            return new PageResult(page.getTotal(), page.getResult());
+
     }
 
-    @Override
-    public User getUser(UserQueryDTO userQueryDTO) {
-        return null;
+
+    public User getUser(long id) {
+        User user=userMapper.getUser(id);
+        user.setPasswordHash("******");
+        return user;
     }
 
     @Override
     public void adminUpdate(UserAdminUpdateDTO userAdminUpdateDTO) {
+        User user=new User();
+        BeanUtils.copyProperties(user,userAdminUpdateDTO);
+        userMapper.update(user);
+    }
 
+    @Override
+    public void startOrStop(Integer status, long id) {
+        User user=new User();
+        user.setUserStatus(status);
+        user.setId(id);
+        userMapper.update(user);
+    }
+
+    @Override
+    public void resetPassword(long id) {
+        User user=new User();
+        user.setId(id);
+        user.setPasswordHash(UserTypeConstant.PDW);
+        userMapper.update(user);
     }
 
 }

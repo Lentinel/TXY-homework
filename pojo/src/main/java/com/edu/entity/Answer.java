@@ -1,5 +1,14 @@
 package com.edu.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Answer {
     private Long Id;
     private Long questionId;     // 问题ID

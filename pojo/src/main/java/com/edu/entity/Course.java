@@ -26,8 +26,9 @@ public class Course  {
     private Long categoryId;
     private Integer duration;
     private Integer difficulty;
-    //0为不可用，1为可用，2为不可用且被推荐，3为可用且被推荐
+    //0为不可用，1为可用
     private Integer status;
+    private Integer recommend;
     private BigDecimal price;
     //private Integer isCommanded;
     // 关联章节

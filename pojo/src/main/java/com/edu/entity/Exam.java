@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -24,7 +25,8 @@ public class Exam {
     private Integer maxAttempts;
     private Boolean shuffleQuestions;
     private Boolean shuffleOptions;
-
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     // 关联课程
     private Course course;
 

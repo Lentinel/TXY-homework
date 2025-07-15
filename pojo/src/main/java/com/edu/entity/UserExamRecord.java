@@ -1,8 +1,18 @@
 package com.edu.entity;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class UserExamRecord {
     private long id;
     private Long userId;
@@ -12,11 +22,12 @@ public class UserExamRecord {
     private Boolean isPassed;
     private Integer status;
     private Integer attemptCount;
-    private Date startTime;
-    private Date submitTime;
-    private String answers;  // JSON格式
-    private String review;   // JSON格式
-
+    private LocalDateTime startTime;
+    private LocalDateTime submitTime;
+    private List<QuestionAnswer> answers;  // JSON格式
+    private List<String> review;   // JSON格式
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     // 关联用户
     private User user;
 

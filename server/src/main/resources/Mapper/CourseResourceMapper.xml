@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.mapper.CourseResourceMapper">
+
+    <!-- 插入基础资源 -->
+    <insert id="insert" parameterType="com.edu.entity.CourseResource">
+        <selectKey keyProperty="id" resultType="java.lang.Long" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO learning_resources (
+        resource_type, title, description, url, size,
+        duration, sort_order, uploader_id, course_id,
+        create_time, update_time
+        ) VALUES (
+        #{resourceType}, #{title}, #{description}, #{url}, #{size},
+        #{duration}, #{sortOrder}, #{uploaderId}, #{courseId},
+        #{createTime}, #{updateTime}
+        )
+    </insert>
+
+    <!-- 插入课程资源扩展信息 -->
+    <insert id="insertExtension" parameterType="com.edu.entity.CourseResource">
+        INSERT INTO course_resources (
+            id, course_overview, is_required
+        ) VALUES (
+                     #{id}, #{courseOverview}, #{isRequired}
+                 )
+    </insert>
+
+    <!-- 根据课程ID查询资源列表 -->
+    <select id="selectByCourseId" resultType="com.edu.entity.CourseResource">
+        SELECT
+            lr.*,
+            cr.course_overview,
+            cr.is_required
+        FROM learning_resources lr
+                 JOIN course_resources cr ON lr.id = cr.id
+        WHERE lr.course_id = #{courseId}
+        ORDER BY lr.sort_order ASC
+    </select>
+
+    <!-- 根据ID查询资源 -->
+    <select id="selectById" resultType="com.edu.entity.CourseResource">
+        SELECT
+            lr.*,
+            cr.course_overview,
+            cr.is_required
+        FROM learning_resources lr
+                 JOIN course_resources cr ON lr.id = cr.id
+        WHERE lr.id = #{id}
+    </select>
+
+</mapper>

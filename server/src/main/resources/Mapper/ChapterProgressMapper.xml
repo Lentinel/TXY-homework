@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ChapterProgressMapper">
+
+    <!-- 基础查询结果映射 -->
+    <resultMap id="BaseResultMap" type="com.edu.entity.ChapterProgress">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="chapter_id" property="chapterId" jdbcType="BIGINT"/>
+        <result column="course_id" property="courseId" jdbcType="BIGINT"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="complete_time" property="completeTime" jdbcType="TIMESTAMP"/>
+        <result column="study_duration" property="studyDuration" jdbcType="INTEGER"/>
+        <result column="progress" property="progress" jdbcType="DECIMAL"/>
+        <result column="is_passed" property="isPassed" jdbcType="TINYINT"/>
+        <result column="score" property="score" jdbcType="DECIMAL"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 根据用户和章节查询进度 -->
+    <select id="selectByUserAndChapter" resultMap="BaseResultMap">
+        SELECT * FROM course_chapter_progress
+        WHERE user_id = #{userId}
+          AND chapter_id = #{chapterId}
+    </select>
+
+    <!-- 根据用户和课程查询所有章节进度 -->
+    <select id="selectByUserAndCourse" resultMap="BaseResultMap">
+        SELECT cp.*
+        FROM course_chapter_progress cp
+                 JOIN chapter c ON cp.chapter_id = c.id
+        WHERE cp.user_id = #{userId}
+          AND cp.course_id = #{courseId}
+        ORDER BY c.sort_order ASC
+    </select>
+
+    <!-- 插入进度记录 -->
+    <insert id="insert" parameterType="com.edu.entity.ChapterProgress">
+        INSERT INTO course_chapter_progress (
+            user_id, chapter_id, course_id, status,
+            start_time, progress, study_duration,
+            created_at, updated_at
+        ) VALUES (
+                     #{userId}, #{chapterId}, #{courseId}, #{status},
+                     #{startTime}, #{progress}, #{studyDuration},
+                     NOW(), NOW()
+                 )
+    </insert>
+
+    <!-- 更新进度记录 -->
+    <update id="update" parameterType="com.edu.entity.ChapterProgress">
+        UPDATE course_chapter_progress
+        SET status = #{status},
+            start_time = #{startTime},
+            complete_time = #{completeTime},
+            study_duration = #{studyDuration},
+            progress = #{progress},
+            is_passed = #{isPassed},
+            score = #{score},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 统计用户已完成的章节数 -->
+    <select id="countCompletedByUserAndCourse" resultType="int">
+        SELECT COUNT(*)
+        FROM course_chapter_progress
+        WHERE user_id = #{userId}
+          AND course_id = #{courseId}
+          AND status = 2
+    </select>
+
+    <!-- 统计课程总章节数 -->
+    <select id="countTotalChapters" resultType="int">
+        SELECT COUNT(*)
+        FROM chapter
+        WHERE course_id = #{courseId}
+    </select>
+</mapper>

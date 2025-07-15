@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.UserFavoriteMapper">
+
+    <resultMap id="BaseResultMap" type="com.edu.entity.UserFavorite">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="course_id" property="courseId" jdbcType="BIGINT"/>
+        <result column="favorite_time" property="favoriteTime" jdbcType="TIMESTAMP"/>
+        <result column="is_deleted" property="isDeleted" jdbcType="TINYINT"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 添加收藏 -->
+    <insert id="insert" parameterType="com.edu.entity.UserFavorite">
+        INSERT INTO user_favorite (
+            user_id, course_id, favorite_time, is_deleted, created_at, updated_at
+        ) VALUES (
+                     #{userId}, #{courseId}, #{favoriteTime}, 0, NOW(), NOW()
+                 )
+    </insert>
+
+    <!-- 取消收藏（逻辑删除） -->
+    <update id="markAsDeleted">
+        UPDATE user_favorite
+        SET is_deleted = 1,
+            updated_at = NOW()
+        WHERE user_id = #{userId}
+          AND course_id = #{courseId}
+          AND is_deleted = 0
+    </update>
+
+    <!-- 检查是否已收藏 -->
+    <select id="selectByUserAndCourse" resultMap="BaseResultMap">
+        SELECT * FROM user_favorite
+        WHERE user_id = #{userId}
+          AND course_id = #{courseId}
+          AND is_deleted = 0
+    </select>
+
+    <!-- 获取用户收藏的课程列表 -->
+    <select id="selectCoursesByUser" resultMap="BaseResultMap">
+        SELECT * FROM user_favorite
+        WHERE user_id = #{userId}
+          AND course_id IS NOT NULL
+          AND is_deleted = 0
+        ORDER BY favorite_time DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <!-- 统计用户收藏的课程数量 -->
+    <select id="countCoursesByUser" resultType="int">
+        SELECT COUNT(*) FROM user_favorite
+        WHERE user_id = #{userId}
+          AND course_id IS NOT NULL
+          AND is_deleted = 0
+    </select>
+</mapper>

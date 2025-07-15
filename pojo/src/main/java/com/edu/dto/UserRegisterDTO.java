@@ -14,5 +14,5 @@ public class UserRegisterDTO {
     private String avatarUrl;
     private Integer gender;
     private Date birthday;
-    private Integer role;
+    private String role;
 }

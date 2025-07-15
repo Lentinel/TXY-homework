@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ForumPostMapper">
+
+    <insert id="insert" parameterType="com.edu.entity.ForumPost">
+        INSERT INTO forum_post (
+            section_id, title, content, author_id,
+            is_top, is_essence, create_time
+        ) VALUES (
+                     #{sectionId}, #{title}, #{content}, #{authorId},
+                     #{isTop}, #{isEssence}, NOW()
+                 )
+    </insert>
+
+    <update id="update" parameterType="com.edu.entity.ForumPost">
+        UPDATE forum_post
+        SET title = #{title},
+            content = #{content},
+            is_top = #{isTop},
+            is_essence = #{isEssence},
+            status = #{status},
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.edu.entity.ForumPost">
+        SELECT * FROM forum_post WHERE id = #{id}
+    </select>
+
+    <select id="selectBySectionId" resultType="com.edu.entity.ForumPost">
+        SELECT * FROM forum_post
+        WHERE section_id = #{sectionId}
+          AND status = 1
+        ORDER BY is_top DESC, create_time DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="selectHotPosts" resultType="com.edu.entity.ForumPost">
+        SELECT * FROM forum_post
+        WHERE status = 1
+        ORDER BY view_count DESC, reply_count DESC
+        LIMIT #{limit}
+    </select>
+
+    <update id="incrementViewCount">
+        UPDATE forum_post SET view_count = view_count + 1 WHERE id = #{postId}
+    </update>
+    <update id="incrementReplyCount">
+        UPDATE forum_post SET reply_count = reply_count + 1 WHERE id = #{postId}
+    </update>
+    <update id="incrementLikeCount">
+        UPDATE forum_post SET like_count = like_count + 1 WHERE id = #{postId}
+    </update>
+    <update id="decrementLikeCount">
+        UPDATE forum_post SET like_count = like_count - 1 WHERE id = #{postId}
+    </update>
+</mapper>

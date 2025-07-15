@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ForumReplyMapper">
+
+    <insert id="insert" parameterType="com.edu.entity.ForumReply">
+        INSERT INTO forum_reply (
+            post_id, parent_id, author_id, content, create_time
+        ) VALUES (
+                     #{postId}, #{parentId}, #{authorId}, #{content}, NOW()
+                 )
+    </insert>
+
+    <select id="selectByPostId" resultType="com.edu.entity.ForumReply">
+        SELECT * FROM forum_reply
+        WHERE post_id = #{postId}
+          AND status = 1
+        ORDER BY create_time ASC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="selectLastByPostId" resultType="com.edu.entity.ForumReply">
+        SELECT * FROM forum_reply
+        WHERE post_id = #{postId}
+          AND status = 1
+        ORDER BY create_time DESC
+        LIMIT 1
+    </select>
+
+    <update id="incrementLikeCount">
+        UPDATE forum_reply SET like_count = like_count + 1 WHERE id = #{replyId}
+    </update>
+    <update id="decrementLikeCount">
+        UPDATE forum_reply SET like_count = like_count - 1 WHERE id = #{replyId}
+    </update>
+</mapper>

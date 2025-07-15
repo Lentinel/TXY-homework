@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.mapper.ChapterMapper">
+    <update id="pageQuery" parameterType="com.edu.dto.ChapterPageQueryDTO">
+        select * from chapter where course_id= #{courseId} order by sort_order desc
+    </update>
+    <select id="query" resultType="com.edu.entity.Chapter" parameterType="com.edu.dto.ChapterDTO">
+        select * from chapter where id=#{chapterId} and course_id = #{courseId}
+    </select>
+
+    <delete id="deleteByCourseId">
+        delete from chapter where course_id=#{courseId}
+    </delete>
+
+    <update id="update" parameterType="com.edu.entity.Chapter">
+        update chapter
+            <set>
+                <if test="title!=null">
+                    title=#{title}
+                </if>
+                <if test="description!=null">
+                    description = #{description}
+                </if>
+                <if test="sortOrder!=null">
+                    sort_order = #{sortOder}
+                </if>
+                <if test="contentType!=null">
+                    content_type = #{contentType}
+                </if>
+                <if test="estimatedTime!=null">
+                    estimated_time=#{estimatedTime}
+                </if>
+                <if test="content!=null">
+                    content=#{content}
+                </if>
+                <if test="isRequired!=null">
+                    is_required=#{isRequired}
+                </if>
+                <if test="updateTime!=null">
+                    updated_at=#{updateTime}
+                </if>
+            </set>
+    </update>
+
+    <delete id="delete">
+        delete from chapter where id=#{chapterId}
+    </delete>
+
+    <insert id="createChapter" parameterType="com.edu.entity.Chapter" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into chapter (course_id, title, description, sort_order, content, estimated_time,is_required,created_at,updated_at) VALUES
+            (#{courseId},#{title},#{description},#{sortOrder},#{content},#{estimatedTime},#{isRequired},#{createTime},#{updateTime})
+    </insert>
+</mapper>

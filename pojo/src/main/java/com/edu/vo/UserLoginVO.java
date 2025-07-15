@@ -14,6 +14,6 @@ public class UserLoginVO {
     private long id;
     private String name;
     private String userName;
-    private String category;
+    private String role;
     private String token;
 }

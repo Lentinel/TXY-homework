@@ -14,7 +14,11 @@ public interface UserService {
 
     PageResult getUsers(UserPageQueryDTO userPageQueryDTO);
 
-    User getUser(UserQueryDTO userQueryDTO);
+    User getUser(long id);
 
     void adminUpdate(UserAdminUpdateDTO userAdminUpdateDTO);
+
+    void startOrStop(Integer status, long id);
+
+    void resetPassword(long id);
 }
