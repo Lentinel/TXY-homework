@@ -1,16 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
+  // 登录页面路由，不需要认证
   {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/user/Login.vue')
   },
+  
+  // 主布局路由，所有需要认证的页面都在这里作为子路由
   {
     path: '/',
     component: () => import('@/components/layout/BasicLayout.vue'),
     redirect: '/dashboard',
     children: [
+      // ----------------- 原有课程管理路由 START -----------------
       {
         path: 'dashboard',
         name: 'Dashboard',
@@ -35,65 +39,98 @@ const routes = [
         component: () => import('@/views/course/Edit.vue'),
         meta: { title: '编辑课程' }
       },
-      // --- 论坛模块路由 START ---
+      // ----------------- 原有课程管理路由 END -----------------
+
+      // ----------------- 论坛模块路由 START -----------------
       {
-        path: 'forum', // 论坛主页，显示所有帖子
+        path: 'forum', // 论坛板块列表页，新增
+        name: 'ForumSectionPage',
+        component: () => import('@/views/ForumSectionPage.vue'),
+        meta: { title: '论坛板块' }
+      },
+      {
+        path: 'forum/sections/:sectionId', // 按板块查看帖子列表，新路径
         name: 'ForumPage',
-        component: () => import('@/views/ForumPage.vue'), // 假设 ForumPage.vue 在 src/views 下
-        meta: { title: '论坛' }
+        component: () => import('@/views/ForumPage.vue'),
+        props: true,
+        meta: { title: '论坛帖子' }
       },
       {
-        path: 'forum/create', // 创建新帖子页面
-        name: 'CreatePost',
-        component: () => import('@/views/CreatePost.vue'), // 假设 CreatePost.vue 在 src/views 下
-        meta: { title: '发帖' }
-      },
-      {
-        path: 'forum/:id', // 帖子详情页，显示帖子内容和评论
+        path: 'forum/sections/:sectionId/posts/:postId', // 论坛帖子详情页，新路径
         name: 'PostDetail',
-        component: () => import('@/views/PostDetail.vue'), // 假设 PostDetail.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:id` 作为组件的 props 传递
+        component: () => import('@/views/PostDetail.vue'),
+        props: true,
         meta: { title: '帖子详情' }
       },
-      // --- 论坛模块路由 END ---
-
-      // --- 问答模块路由 START ---
       {
-        path: 'course/:courseId/questions', // 课程问答列表页，显示特定课程下的所有问题
+        path: 'forum/create', // 创建新帖子页面，保持不变
+        name: 'CreatePost',
+        component: () => import('@/views/CreatePost.vue'),
+        meta: { title: '发帖' }
+      },
+      // ----------------- 论坛模块路由 END -----------------
+
+      // ----------------- 问答模块路由 START -----------------
+      {
+        path: 'course/:courseId/questions', // 课程问答列表页，保持不变
         name: 'QuestionListPage',
-        component: () => import('@/views/QuestionListPage.vue'), // 假设 QuestionListPage.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:courseId` 作为组件的 props 传递
+        component: () => import('@/views/QuestionListPage.vue'),
+        props: true,
         meta: { title: '课程问答' }
       },
       {
-        path: 'course/:courseId/ask', // 提问页面，用于用户在特定课程下提问
+        path: 'course/:courseId/ask', // 提问页面，保持不变
         name: 'AskQuestion',
-        component: () => import('@/views/AskQuestion.vue'), // 假设 AskQuestion.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:courseId` 作为组件的 props 传递
+        component: () => import('@/views/AskQuestion.vue'),
+        props: true,
         meta: { title: '我要提问' }
       },
       {
-        path: 'course/:courseId/question/:questionId', // 问题详情页，显示问题内容和所有回答
+        path: 'course/:courseId/question/:questionId', // 问题详情页，保持不变
         name: 'QuestionDetail',
-        component: () => import('@/views/QuestionDetail.vue'), // 假设 QuestionDetail.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:courseId` 和 `:questionId` 作为组件的 props 传递
+        component: () => import('@/views/QuestionDetail.vue'),
+        props: true,
         meta: { title: '问题详情' }
       },
       {
-        path: 'user/:userId/questions', // 我的提问页面，显示当前用户提问的所有问题
+        path: 'user/:userId/questions', // 我的提问页面，保持不变
         name: 'MyQuestionsPage',
-        component: () => import('@/views/MyQuestionsPage.vue'), // 假设 MyQuestionsPage.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:userId` 作为组件的 props 传递
+        component: () => import('@/views/MyQuestionsPage.vue'),
+        props: true,
         meta: { title: '我的提问' }
       },
       {
-        path: 'user/:userId/answers', // 我的回答页面，显示当前用户作出的所有回答
+        path: 'user/:userId/answers', // 我的回答页面，保持不变
         name: 'MyAnswersPage',
-        component: () => import('@/views/MyAnswersPage.vue'), // 假设 MyAnswersPage.vue 在 src/views 下
-        props: true, // 允许将路由参数 `:userId` 作为组件的 props 传递
+        component: () => import('@/views/MyAnswersPage.vue'),
+        props: true,
         meta: { title: '我的回答' }
+      },
+      // ----------------- 问答模块路由 END -----------------
+      
+      // ----------------- 课程讨论模块路由 START -----------------
+      {
+        path: 'course/:courseId/discussions', // 课程讨论列表页
+        name: 'DiscussionListPage',
+        component: () => import('@/views/DiscussionListPage.vue'),
+        props: true,
+        meta: { title: '课程讨论' }
+      },
+      {
+        path: 'course/:courseId/discussions/create', // 发布新讨论
+        name: 'CreateDiscussion',
+        component: () => import('@/views/CreateDiscussion.vue'),
+        props: true,
+        meta: { title: '发布讨论' }
+      },
+      {
+        path: 'course/:courseId/discussions/:discussionId', // 讨论详情页
+        name: 'DiscussionDetail',
+        component: () => import('@/views/DiscussionDetail.vue'),
+        props: true,
+        meta: { title: '讨论详情' }
       }
-      // --- 问答模块路由 END ---
+      // ----------------- 课程讨论模块路由 END -----------------
     ]
   }
 ]
