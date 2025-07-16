@@ -5,6 +5,10 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import axios from 'axios' // 1. 导入 axios
+
+// 2. 设置 axios 的基础 URL
+axios.defaults.baseURL = 'http://localhost:8081/api'
 
 const app = createApp(App)
 
