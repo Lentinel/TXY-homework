@@ -193,6 +193,34 @@ const routes = [
         meta: { title: '讨论详情' }
       }
       // ----------------- 课程讨论模块路由 END -----------------
+ 
+
+      // ----------------- 管理员模块路由 START -----------------
+      {
+        path: 'admin-dashboard',
+        name: 'AdminDashboard',
+        component: () => import('@/views/admin/AdminDashboard.vue'),
+        meta: { title: '管理员主页', roles: [2] }
+      },
+      {
+        path: 'admin/users',
+        name: 'UserManagementPage',
+        component: () => import('@/views/admin/UserManagementPage.vue'),
+        meta: { title: '用户管理', roles: [2] }
+      },
+      {
+        path: 'admin/courses',
+        name: 'CourseManagementPage',
+        component: () => import('@/views/admin/CourseManagementPage.vue'),
+        meta: { title: '课程管理', roles: [2] }
+      },
+      {
+        path: 'admin/orders',
+        name: 'OrderManagementPage',
+        component: () => import('@/views/admin/OrderManagementPage.vue'),
+        meta: { title: '订单管理', roles: [2] }
+      }
+      // ----------------- 管理员模块路由 END -----------------
     ]
   }
 ]

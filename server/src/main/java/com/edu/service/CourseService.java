@@ -89,4 +89,6 @@ public interface CourseService {
     void createChapter(Chapter chapter);
 
     void enroll(long courseId, long userId);
+
+    void recommend(long id, Integer recommend);
 }

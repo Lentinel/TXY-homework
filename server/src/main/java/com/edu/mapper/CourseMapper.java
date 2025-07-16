@@ -2,6 +2,7 @@ package com.edu.mapper;
 
 import com.edu.dto.CoursePageQueryDTO;
 import com.edu.dto.CourseQueryPersonDTO;
+import com.edu.dto.TeachCoursePageQueryDTO;
 import com.edu.entity.Course;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
@@ -28,4 +29,6 @@ public interface CourseMapper {
     void enroll(long courseId, long userId, LocalDateTime localDateTime);
 
     Long getEnroll(long courseId, long userId);
+
+    Page<Course> TeacherPageQuery(TeachCoursePageQueryDTO teachCoursePageQueryDTO);
 }

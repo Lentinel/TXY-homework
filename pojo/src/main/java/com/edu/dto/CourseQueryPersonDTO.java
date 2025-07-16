@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CourseQueryPersonDTO {
-    private int user_id;
+    private long id;
     private int page;
     private int pageSize;
 

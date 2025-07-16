@@ -4,13 +4,13 @@
 <mapper namespace="com.edu.mapper.CategoryMapper">
     <insert id="insert" parameterType="com.edu.entity.Category" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into course_category( parent_id, name, description, sort_order, created_at, updated_at)
-        VALUES (#{parent_id},#{name},#{description},#{sortOrder},#{createTime},#{updateTime})
+        VALUES (#{parentId},#{name},#{description},#{sortOrder},#{createTime},#{updateTime})
     </insert>
     <update id="update" parameterType="com.edu.entity.Category">
         update course_category
             <set>
-                <if test="parentdId!=null">
-                    parent_id=#{parent_id},
+                <if test="parentId!=null">
+                    parent_id=#{parentId},
                 </if>
                 <if test="name!=null">
                     name=#{name},
@@ -40,7 +40,7 @@
     </update>
 
     <select id="getById" resultType="com.edu.entity.Category" parameterType="long">
-        select id,parent_id  from course_category
+        select *  from course_category where id=#{id}
     </select>
 
     <select id="pageQuery" resultType="com.edu.entity.Category">

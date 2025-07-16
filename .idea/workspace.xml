@@ -5,207 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eac32454-4c49-4b00-9664-ab1a7f2a9a78" name="更改" comment="2">
-      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/Exception/UserExamException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/enumeration/ResouceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/json/JacksonObjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/AliOssProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/WeChatProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/AliOssUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/HttpClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/WeChatPayUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CategoryPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ChapterUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseCategoryUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseReviewDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseSaleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CreateCourseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CreateQuestionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/FavoritePageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/OrderPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/RecordPageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/TeachCoursePageQueryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/TeacherCourseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UpdateQuestionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserResetDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ChapterProgress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ChapterResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/CourseDiscussion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/CourseResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/DiscussionLike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/DiscussionReply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumLike.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumPost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumReply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumSection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserFavorite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/CategoryVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/CourseSaleVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/QuestionAnswerVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/MyBatisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/OssConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/DiscussionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/DiscussionReplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumHomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumPostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumReplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ResourceDownloadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/ChapterProgressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/UserFavoriteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/ChapterResourceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/CourseResourceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/TeacherCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ChapterMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ChapterProgressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ChapterResourceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/CourseDiscussionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/CourseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/CourseResourceMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/CourseStatisticsMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/DiscussionLikeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/DiscussionReplyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/EnrollmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ExamMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ForumLikeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ForumPostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ForumReplyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ForumSectionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/GradeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ReviewMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/UserFavoriteMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ChapterProgressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/DiscussionReplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/DiscussionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/FileStorageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ForumPostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ForumReplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ForumSectionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/LearningResourceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/UserFavoriteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/AliOssFileStorageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ChapterProgressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/DiscussionReplyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/DiscussionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ForumPostServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ForumReplyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ForumSectionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/LearningResourceServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/UserFavoriteServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/CategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ChapterMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ChapterProgressMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ChapterResourceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/CourseDiscussionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/CourseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/CourseResourceMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/CourseStatisticsMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/DiscussionLikeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/DiscussionReplyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/EnrollmentMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ExamMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ForumLikeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ForumPostMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ForumReplyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ForumSectionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/GradeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ReviewMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/UserFavoriteMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8aa59937-775f-479a-925d-767b736d01a5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8aa59937-775f-479a-925d-767b736d01a5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/UserTypeConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/UserTypeConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/JwtProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/result/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/result/PageResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu-platform-frontend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/conf/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/logs/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/logs/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/logs/nginx.pid" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/logs/nginx.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ChapterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ChapterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ChapterPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ChapterPageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseDetailQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseDetailQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CoursePageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseQueryPersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseQueryPersonDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamPageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserAdminUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserAdminUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserLoginDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserOrderQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserOrderQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserPageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserRegisterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserRegisterDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserUpdateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Chapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Chapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Coupon.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Coupon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/CourseStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/CourseStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Forum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ForumComment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/LearningResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/LearningResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/PaymentRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/PaymentRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/QuestionAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/QuestionAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/SystemNotification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserChapterProgress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserCoupon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserNotification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ChapterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ChapterVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserLoginVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserLoginVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserRegisterVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserRegisterVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/Mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/EduApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/EduApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ExamController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/StatisticsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/AdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/StaticConroller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/StudentCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/LearningController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/QAController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/ChapterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/CourseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/StudentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/TeacherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ExamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ExamServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +44,7 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2yt3FKJCDOmt7awVwS04pmDLvew" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -260,10 +64,11 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.EduApplication.executor": "Run",
     "Spring Boot.SkyApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "openjdk-22",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/JAVA",
@@ -277,7 +82,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true",
     "应用程序.EduApplication.executor": "Run"
@@ -351,6 +156,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -396,6 +209,8 @@
       <workItem from="1752495200050" duration="19926000" />
       <workItem from="1752571665384" duration="534000" />
       <workItem from="1752588775527" duration="21081000" />
+      <workItem from="1752635436841" duration="29000" />
+      <workItem from="1752635637192" duration="196000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

@@ -34,8 +34,9 @@ public class TeacherCourseController {
         courseService.takeoffCourse(id);
         return Result.success();
     }
-    @PutMapping("/{courseId}/desc")
-    public Result<String> updateCourseDESC(@PathVariable("courseId")long courseId, String desc)
+    @PutMapping("/{courseId}/desc")//ok?
+    public Result<String> updateCourseDESC(@PathVariable("courseId")long courseId,
+                                           @RequestParam("desc") String desc)
     {
         log.info("更新课程");
         Course course=new Course();
@@ -44,7 +45,7 @@ public class TeacherCourseController {
         courseService.update(course);
         return Result.success();
     }
-    @GetMapping("/{courseId}")
+    @GetMapping("/{courseId}")//OK
     public Result<Course> getCourseDetail(@PathVariable("courseId")long courseId)
     {
         log.info("获取课程信息{}",courseId);
@@ -52,34 +53,40 @@ public class TeacherCourseController {
         return Result.success(course);
 
     }
-    @GetMapping("/{instructorId}/page")
-    public Result<PageResult> coursePageQuery(TeachCoursePageQueryDTO teachCoursePageQueryDTO)
+    @GetMapping("/{instructorId}/page")//OK
+    public Result<PageResult> coursePageQuery(@PathVariable("instructorId")long instructorId,
+            @RequestBody TeachCoursePageQueryDTO teachCoursePageQueryDTO)
     {
+        teachCoursePageQueryDTO.setInstructorId(instructorId);
         log.info("查询教师教授课程{}",teachCoursePageQueryDTO);
+
         PageResult pageResult=courseService.teachCoursePageQuery(teachCoursePageQueryDTO);
         return Result.success(pageResult);
     }
-    @GetMapping("/{courseId}/chapter")
+    @GetMapping("/{courseId}/chapter")//ok
     public Result<PageResult> chapters(ChapterPageQueryDTO chapterPageQueryDTO)
     {
         log.info("查询课程章节{}",chapterPageQueryDTO);
         PageResult pageResult=courseService.chapters(chapterPageQueryDTO);
         return Result.success(pageResult);
     }
-    @GetMapping("/{courseId}/chapter/{chapterId}")
-    public Result<ChapterVO> chapter(ChapterDTO chapterDTO)
+    @GetMapping("/{courseId}/chapter/{chapterId}")//ok
+    public Result<ChapterVO> chapter(@PathVariable("courseId")long courseId,@PathVariable("chapterId")long chapterId)
     {
+        ChapterDTO chapterDTO = new ChapterDTO();
+        chapterDTO.setChapterId(chapterId);
+        chapterDTO.setCourseId(courseId);
         log.info("查询章节{}",chapterDTO);
         ChapterVO chapterVO=courseService.chapter(chapterDTO);
         return Result.success(chapterVO);
     }
-    @PostMapping("/{courseId}/chapter")
+    @PostMapping("/{courseId}/chapter")//ok
     public Result<String> createChapter(@RequestBody Chapter chapter)
     {
         courseService.createChapter(chapter);
         return Result.success();
     }
-    @PostMapping("/{courseId}/chapter/{chapterId}")
+    @PostMapping("/{courseId}/chapter/{chapterId}")//OK
     public Result<String> update(@RequestBody ChapterUpdateDTO chapterUpdateDTO)
     {
         log.info("更新章节{}",chapterUpdateDTO);

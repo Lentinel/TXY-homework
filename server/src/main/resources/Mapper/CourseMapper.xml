@@ -11,7 +11,7 @@
                 <if test="description!=null">
                     description = #{description},
                 </if>
-                <if test="dutarion != null">
+                <if test="duration != null">
                     duration=#{duration},
                 </if>
                 <if test="difficulty != null">
@@ -20,9 +20,9 @@
                 </if>
                 <if test="price != null">
                     price=#{price},
+                </if>
                 <if test="recommend !=null">
                     recommend = #{recommend},
-                </if>
                 </if>
                 <if test="status != null">
                     status = #{status},
@@ -65,7 +65,7 @@
         select * from course where id = #{id}
     </select>
     <select id="personPageQuery" resultType="com.edu.entity.Course">
-        select * from course left join course_enrollment on course.id = course_enrollment.course_id where user_id = #{user_id}
+        select * from course left join course_enrollment on course.id = course_enrollment.course_id where user_id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.edu.entity.Course">
@@ -85,5 +85,9 @@
 
     <select id="getEnroll" resultType="java.lang.Long">
         select status from course_enrollment where course_id=#{courseId} and user_id=#{userId}
+    </select>
+
+    <select id="TeacherPageQuery" resultType="com.edu.entity.Course">
+        select * from course where instructor_id=#{instructorId}
     </select>
 </mapper>

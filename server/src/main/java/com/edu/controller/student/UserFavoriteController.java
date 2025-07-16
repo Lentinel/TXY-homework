@@ -1,4 +1,4 @@
-package com.edu.controller;
+package com.edu.controller.student;
 
 import com.edu.result.Result;
 import com.edu.entity.UserFavorite;

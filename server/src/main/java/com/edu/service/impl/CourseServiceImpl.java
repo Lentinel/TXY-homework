@@ -87,6 +87,7 @@ public class CourseServiceImpl implements CourseService {
     public void review(CourseReviewDTO courseReviewDTO) {
         Course course = new Course();
         BeanUtils.copyProperties(courseReviewDTO,course);
+        course.setUpdateTime(LocalDateTime.now());
         courseMapper.update(course);
     }
     //TODO 非必要功能
@@ -100,6 +101,7 @@ public class CourseServiceImpl implements CourseService {
         Category category= categoryMapper.getById(id);
         CategoryVO categoryVO=new CategoryVO();
         BeanUtils.copyProperties(category,categoryVO);
+        categoryVO.setId(category.getId());
         if(categoryVO.getParent_id()!=0) {
             categoryVO.setParentName(getCategory(categoryVO.getParent_id()).getName());
         }
@@ -110,6 +112,10 @@ public class CourseServiceImpl implements CourseService {
     public void updateCategory(CourseCategoryUpdateDTO courseCategoryUpdateDTO) {
         Category category=new Category();
         category.setUpdateTime(LocalDateTime.now());
+        if(courseCategoryUpdateDTO.getSortOrder()==null)
+        {
+            courseCategoryUpdateDTO.setSortOrder(0);
+        }
         BeanUtils.copyProperties(courseCategoryUpdateDTO,category);
         categoryMapper.update(category);
     }
@@ -117,6 +123,10 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public void createCategory(CreateCourseDTO createCourseDTO) {
         Category category=new Category();
+        if(createCourseDTO.getSortOrder()==null)
+        {
+            createCourseDTO.setSortOrder(0);
+        }
         BeanUtils.copyProperties(createCourseDTO,category);
         category.setCreateTime(LocalDateTime.now());
         category.setUpdateTime(category.getCreateTime());
@@ -145,12 +155,14 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public void takeoffCourse(long id) {
 
+        courseMapper.delete(id);
     }
 
     @Override
     public PageResult teachCoursePageQuery(TeachCoursePageQueryDTO teachCoursePageQueryDTO) {
-
-        return null;
+        PageHelper.startPage(teachCoursePageQueryDTO.getPage(),teachCoursePageQueryDTO.getPageSize());
+        Page<Course> page=courseMapper.TeacherPageQuery(teachCoursePageQueryDTO);
+        return new PageResult(page.getTotal(),page.getResult());
     }
 
     @Override
@@ -378,6 +390,15 @@ public class CourseServiceImpl implements CourseService {
         {
             throw new RuntimeException("您已经加入过该课程");
         }
+    }
+
+    @Override
+    public void recommend(long id, Integer recommend) {
+        Course course=new Course();
+        course.setId(id);
+        course.setRecommend(recommend);
+        course.setUpdateTime(LocalDateTime.now());
+        courseMapper.update(course);
     }
 
 

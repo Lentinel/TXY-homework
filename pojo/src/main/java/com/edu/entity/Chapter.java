@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -28,10 +27,6 @@ public class Chapter {
     private Integer estimatedTime;
     private Boolean isRequired;
 
-    // 关联课程
-    private Course course;
 
-    // 关联学习资源
-    private List<LearningResource> resources;
 
 }

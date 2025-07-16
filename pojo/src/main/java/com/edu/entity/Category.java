@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Category {
     private int id;
-    private int parent_id;
+    private int parentId;
     private String name;
     private String description;
     private int sortOrder;

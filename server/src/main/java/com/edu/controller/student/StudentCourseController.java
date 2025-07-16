@@ -41,10 +41,12 @@ public class StudentCourseController {
         Course course=courseService.detailQuery(courseId);
         return Result.success(course);
     }
-    @GetMapping("/{id}/course")
-    public Result<PageResult> myCourses(@RequestBody CourseQueryPersonDTO courseQueryPersonDTO)
+    @GetMapping("/{id}/course")//ok
+    public Result<PageResult> myCourses(@PathVariable("id")long id,
+            @RequestBody CourseQueryPersonDTO courseQueryPersonDTO)
     {
         log.info("查询用户课程{}",courseQueryPersonDTO);
+        courseQueryPersonDTO.setId(id);
         PageResult pageResult=courseService.personPageQuery(courseQueryPersonDTO);
         return Result.success(pageResult);
     }

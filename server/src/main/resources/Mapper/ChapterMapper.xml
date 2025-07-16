@@ -2,9 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.edu.mapper.ChapterMapper">
-    <update id="pageQuery" parameterType="com.edu.dto.ChapterPageQueryDTO">
-        select * from chapter where course_id= #{courseId} order by sort_order desc
-    </update>
+
     <select id="query" resultType="com.edu.entity.Chapter" parameterType="com.edu.dto.ChapterDTO">
         select * from chapter where id=#{chapterId} and course_id = #{courseId}
     </select>
@@ -51,4 +49,8 @@
         insert into chapter (course_id, title, description, sort_order, content, estimated_time,is_required,created_at,updated_at) VALUES
             (#{courseId},#{title},#{description},#{sortOrder},#{content},#{estimatedTime},#{isRequired},#{createTime},#{updateTime})
     </insert>
+
+    <select id="pageQuery" resultType="com.edu.entity.Chapter">
+        select * from chapter where course_id= #{courseId} order by sort_order desc
+    </select>
 </mapper>

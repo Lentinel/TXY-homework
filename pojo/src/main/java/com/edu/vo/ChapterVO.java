@@ -1,13 +1,9 @@
 package com.edu.vo;
 
-import com.edu.entity.Course;
-import com.edu.entity.LearningResource;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -24,9 +20,5 @@ public class ChapterVO {
     private Integer estimatedTime;
     private Boolean isRequired;
 
-    // 关联课程
-    private Course course;
 
-    // 关联学习资源
-    private List<LearningResource> resources;
 }
