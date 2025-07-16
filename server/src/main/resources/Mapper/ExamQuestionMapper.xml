@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.mapper.ExamQuestionMapper">
+    <insert id="insert" parameterType="com.edu.entity.ExamQuestion">
+        INSERT INTO exam_question (exam_id, question_id, sort_order, score)
+        VALUES (#{examId}, #{questionId}, #{sortOrder}, #{score})
+    </insert>
+
+    <delete id="deleteByExamId" parameterType="long">
+        DELETE FROM exam_question WHERE exam_id = #{examId}
+    </delete>
+
+    <select id="selectByExamId" parameterType="long" resultType="com.edu.entity.ExamQuestion">
+        SELECT * FROM exam_question
+        WHERE exam_id = #{examId}
+        ORDER BY sort_order ASC
+    </select>
+
+    <select id="selectQuestionTypesByExamId" parameterType="java.lang.Long" resultType="java.lang.Integer">
+        SELECT q.question_type
+        FROM exam_question eq
+        INNER JOIN question q ON eq.question_id = q.id
+        WHERE eq.exam_id = #{examId}
+    </select>
+
+    <select id="selectObjectiveQuestionsByExamId" resultType="com.edu.entity.ExamQuestion">
+        SELECT eq.*
+        FROM exam_question eq
+        JOIN question q ON eq.question_id = q.id
+        WHERE eq.exam_id = #{examId}
+        AND q.question_type != 3  <!-- 只查询客观题（1-单选，2-多选，3-判断） -->
+        ORDER BY eq.sort_order
+    </select>
+
+    <select id="calculateTotalScore" parameterType="long" resultType="int">
+        SELECT SUM(score) FROM exam_question WHERE exam_id = #{examId}
+    </select>
+</mapper>

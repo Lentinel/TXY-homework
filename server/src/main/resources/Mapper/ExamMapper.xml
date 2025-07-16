@@ -184,4 +184,29 @@
     <select id="getRecordScore" resultType="java.math.BigDecimal">
         select sum(score) from question_answer where user_id=(select user_id from user_exam_record where id=#{recordId}) and exam_id=(select exam_id from user_exam_record where id=#{recordId})
     </select>
+    <insert id="insert" parameterType="com.edu.entity.Exam">
+        INSERT INTO exam (
+            course_id, title, description, duration, passing_score,
+            is_final_exam, coverage_type, status, max_attempts, created_at, updated_at
+        ) VALUES (
+                     #{courseId}, #{title}, #{description}, #{duration}, #{passingScore},
+                     #{isFinalExam}, #{coverageType}, #{status}, #{maxAttempts},
+                     NOW(), NOW()
+                 )
+    </insert>
+
+    <update id="update" parameterType="com.edu.entity.Exam">
+        UPDATE exam
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="duration != null">duration = #{duration},</if>
+            <if test="status != null">status = #{status},</if>
+            updated_at = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" parameterType="long" resultType="com.edu.entity.Exam">
+        SELECT * FROM exam WHERE id = #{id}
+    </select>
 </mapper>

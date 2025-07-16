@@ -2,3 +2,21 @@
 2025/07/11 17:53:11 [error] 3152#7404: *1 directory index of "D:\JAVA\Education-System\nginx-1.28.0/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
 2025/07/11 17:53:11 [error] 3152#7404: *1 CreateFile() "D:\JAVA\Education-System\nginx-1.28.0/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
 2025/07/11 17:53:22 [error] 3152#7404: *1 directory index of "D:\JAVA\Education-System\nginx-1.28.0/html/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/07/16 17:45:46 [emerg] 2376#15648: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:09:08 [emerg] 2088#4168: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:09:10 [emerg] 18416#17548: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:11:28 [emerg] 3464#6096: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:11:30 [emerg] 3296#7716: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:11:30 [emerg] 5900#7144: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:11:50 [emerg] 17904#18236: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:12:11 [emerg] 18244#14748: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:12:12 [emerg] 5784#17324: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:12:15 [emerg] 12700#18064: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:13:21 [emerg] 18436#19048: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:13:22 [emerg] 9364#9736: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:13:23 [emerg] 16632#10132: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:14:16 [emerg] 8220#10012: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:14:17 [emerg] 18336#8412: CreateDirectory() "D:\JAVA\Education-System\nginx-1.28.0/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2025/07/16 18:31:42 [emerg] 14616#2812: bind() to 0.0.0.0:8080 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/07/16 18:32:07 [emerg] 17312#18960: bind() to 0.0.0.0:8080 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2025/07/16 18:32:18 [emerg] 5820#9012: bind() to 0.0.0.0:8080 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)

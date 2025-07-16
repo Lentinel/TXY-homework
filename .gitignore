@@ -11,7 +11,9 @@ target/
 *.iws
 *.iml
 *.ipr
-
+##
+server/src/main/resources/application-dev.properties
+server/src/main/resources/application-dev.yml
 ### Eclipse ###
 .apt_generated
 .classpath

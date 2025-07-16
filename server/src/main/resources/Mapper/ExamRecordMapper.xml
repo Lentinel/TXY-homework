@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.UserExamRecordMapper">
+    <insert id="insert" parameterType="com.edu.entity.UserExamRecord">
+        INSERT INTO user_exam_record (
+        user_id, exam_id, course_id, status, attempt_count, start_time
+        ) VALUES (
+        #{userId}, #{examId}, #{courseId}, #{status}, #{attemptCount}, #{startTime}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.edu.entity.UserExamRecord">
+        UPDATE user_exam_record
+        <set>
+            <if test="score != null">score = #{score},</if>
+            <if test="answers != null">answers = #{answers},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="submitTime != null">submit_time = #{submitTime},</if>
+            <if test="isPassed != null">is_passed = #{isPassed},</if>
+            <if test="review != null">review = #{review},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

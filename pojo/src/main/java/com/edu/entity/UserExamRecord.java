@@ -7,34 +7,24 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class UserExamRecord {
-    private long id;
+    private Long id;
     private Long userId;
     private Long examId;
     private Long courseId;
     private BigDecimal score;
-    private Boolean isPassed;
-    private Integer status;
+    private Integer isPassed; // 0-否，1-是
+    private Integer status; // 1-进行中，2-已提交，3-已批改
     private Integer attemptCount;
     private LocalDateTime startTime;
     private LocalDateTime submitTime;
-    private List<QuestionAnswer> answers;  // JSON格式
-    private List<String> review;   // JSON格式
+    private String answers; // JSON：{questionId: 答案}
+    private String review; // 批改评语
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    // 关联用户
-    private User user;
-
-    // 关联考试
-    private Exam exam;
-
-    // 关联课程
-    private Course course;
-
 }

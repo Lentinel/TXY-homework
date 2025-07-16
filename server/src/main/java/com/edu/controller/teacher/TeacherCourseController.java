@@ -109,59 +109,7 @@ public class TeacherCourseController {
         PageResult pageResult=courseService.examsQuery(examPageQueryDTO);
         return Result.success(pageResult);
     }
-    @GetMapping("/{courseId}/exam/{examId}")
-    public Result<Exam> exam(@PathVariable("examId")long examId)
-    {
-        log.info("获取考试详情{}",examId);
-        Exam exam=courseService.examQuery(examId);
-        return Result.success();
-    }
-    @PutMapping("/{courseId}/exam/{examId}")
-    public Result<String> updateExam(ExamUpdateDTO examUpdateDTO)
-    {
-        log.info("修改考试{}",examUpdateDTO);
-        courseService.updateExam(examUpdateDTO);
-        return Result.success();
-    }
-    @DeleteMapping("/{courseId}/exam/{examId}")
-    public Result<String> deleteExam(@PathVariable("examId")long examId)
-    {
-        log.info("删除考试{}",examId);
-        courseService.deleteExam(examId);
-        return Result.success();
-    }
-    @PostMapping("/{courseId}/exam")
-    public Result<String> createExam(ExamDTO exam)
-    {
-        log.info("创建考试{}",exam);
-        courseService.createExam(exam);
-        return Result.success();
-    }
-    @GetMapping("/{courseId}/exam/{examId}/question/{sortOrder}")
-    public Result<Question> getQuestion(@PathVariable("sortOrder")long sortOrder,long examId)
-    {
-        Question question= courseService.getQuestion(sortOrder,examId);
-        return Result.success(question);
-    }
-    @PostMapping("/{courseId}/exam/{examId}/question/{sortOrder}")
-    public Result<String> addQuestion(@RequestBody CreateQuestionDTO createQuestionDTO)
-    {
-        courseService.createQuestion(createQuestionDTO);
-        return Result.success();
-    }
-    //TODO 写不完了先别写了
-    @PutMapping("/{courseId}/exam/{examId}/question/{sortOrder}")
-    public Result<String> editQuestion(@RequestBody UpdateQuestionDTO updateQuestionDTO)
-    {
-        courseService.updateQuestion(updateQuestionDTO);
-        return Result.success();
-    }
-    @DeleteMapping("/{courseId}/exam/{examId}/question/{sortOrder}")
-    public Result<String> deleteQuestion(@PathVariable("sortOrder")long sortOrder,@PathVariable("examId")long examId)
-    {
-        courseService.deleteQuestion(sortOrder,examId);
-        return Result.success();
-    }
+
     @PutMapping("/{courseId}/exam/{examId}/{userId}/question/{sortOrder}/grade")
     public Result<String> grade(@PathVariable("examId")long examId,
                                 @PathVariable("sortOrder")long sortOrder,

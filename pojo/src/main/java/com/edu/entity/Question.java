@@ -6,23 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Question {
-    private long id;
-    private Integer questionType;
+public class Question {private Long id;
+    private Integer questionType; // 1-单选，2-多选，3-判断，4-填空，5-简答
     private String content;
-    private String options;  // JSON格式
-    private String answer;   // JSON格式
+    private String options; // JSON格式
+    private String answer; // 参考答案（JSON）
     private Integer difficulty;
-    private Integer score;
+    private Integer score; // 默认分值
     private Long creatorId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    // 关联考试
-    private List<Exam> exams;
+
 }

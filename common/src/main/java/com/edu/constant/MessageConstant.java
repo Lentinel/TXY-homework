@@ -8,4 +8,5 @@ public class MessageConstant {
     public static final String HAVE_DONE_EXAM ="考试已完成或已用完考试次数";
     public static final String PASSWORD_NOT_FIT = "密码或账户输入错误";
     public static final String IS_IN_EXAM="正在考试";
+
 }

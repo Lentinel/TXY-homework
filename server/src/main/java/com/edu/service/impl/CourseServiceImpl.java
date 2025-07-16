@@ -241,7 +241,7 @@ public class CourseServiceImpl implements CourseService {
             UserExamRecord userExamRecord=examMapper.getRecord(examId,userId);
             userExamRecord.setStatus(2);
             userExamRecord.setSubmitTime(LocalDateTime.now());
-            userExamRecord.setAnswers(answers);
+            //userExamRecord.setAnswers(answers);
             examMapper.updateRecord(userExamRecord);
     }
 
@@ -274,7 +274,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public QuestionAnswerVO getQuestion(long sortOrder, long examId, long userId) {
 
-        UserExamRecord record = examMapper.getRecord(examId, userId);
+    /*    UserExamRecord record = examMapper.getRecord(examId, userId);
         QuestionAnswerVO questionAnswerVO=new QuestionAnswerVO();
         Question question =examMapper.getQuestion(examId,sortOrder);
         if(record.getStatus()==1)
@@ -288,8 +288,8 @@ public class CourseServiceImpl implements CourseService {
         {
             BeanUtils.copyProperties(question,questionAnswerVO);
             questionAnswerVO.setAnswer(record.getAnswers().get((int) sortOrder));
-        }
-        return questionAnswerVO;
+        }*/
+        return new QuestionAnswerVO();
     }
 
     @Override
