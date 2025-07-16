@@ -12,38 +12,38 @@
 
       <div v-if="activeTab === 'login'">
         <el-form
-          ref="loginFormRef"
-          :model="loginForm"
-          :rules="loginRules"
-          label-width="0px"
-          size="large"
-          class="login-form"
+            ref="loginFormRef"
+            :model="loginForm"
+            :rules="loginRules"
+            label-width="0px"
+            size="large"
+            class="login-form"
         >
           <el-form-item prop="username">
             <el-input
-              v-model="loginForm.username"
-              placeholder="请输入用户名"
-              prefix-icon="el-icon-user"
+                v-model="loginForm.username"
+                placeholder="请输入用户名"
+                prefix-icon="el-icon-user"
             ></el-input>
           </el-form-item>
 
           <el-form-item prop="password">
             <el-input
-              v-model="loginForm.password"
-              type="password"
-              placeholder="请输入密码"
-              prefix-icon="el-icon-lock"
-              show-password
-              @keyup.enter.native="handleSubmit"
+                v-model="loginForm.password"
+                type="password"
+                placeholder="请输入密码"
+                prefix-icon="el-icon-lock"
+                show-password
+                @keyup.enter.native="handleSubmit"
             ></el-input>
           </el-form-item>
 
           <el-form-item>
             <el-button
-              type="primary"
-              style="width: 100%"
-              :loading="loading"
-              @click="handleSubmit"
+                type="primary"
+                style="width: 100%"
+                :loading="loading"
+                @click="handleSubmit"
             >
               登录
             </el-button>
@@ -53,12 +53,12 @@
 
       <div v-else>
         <el-form
-          ref="registerFormRef"
-          :model="registerForm"
-          :rules="registerRules"
-          label-width="80px"
-          size="large"
-          class="register-form"
+            ref="registerFormRef"
+            :model="registerForm"
+            :rules="registerRules"
+            label-width="80px"
+            size="large"
+            class="register-form"
         >
           <el-form-item label="用户名" prop="username">
             <el-input v-model="registerForm.username" placeholder="请输入用户名" />
@@ -66,26 +66,26 @@
 
           <el-form-item label="密码" prop="password">
             <el-input
-              v-model="registerForm.password"
-              type="password"
-              placeholder="请输入密码"
-              show-password
+                v-model="registerForm.password"
+                type="password"
+                placeholder="请输入密码"
+                show-password
             />
           </el-form-item>
 
           <el-form-item label="确认密码" prop="confirmPassword">
             <el-input
-              v-model="registerForm.confirmPassword"
-              type="password"
-              placeholder="请确认密码"
-              show-password
+                v-model="registerForm.confirmPassword"
+                type="password"
+                placeholder="请确认密码"
+                show-password
             />
           </el-form-item>
 
           <el-form-item label="邮箱" prop="email">
             <el-input v-model="registerForm.email" placeholder="请输入邮箱" />
           </el-form-item>
-          
+
           <el-form-item label="手机号" prop="phone">
             <el-input v-model="registerForm.phone" placeholder="请输入手机号" />
           </el-form-item>
@@ -99,10 +99,10 @@
 
           <el-form-item>
             <el-button
-              type="success"
-              style="width: 100%"
-              :loading="loading"
-              @click="handleSubmit"
+                type="success"
+                style="width: 100%"
+                :loading="loading"
+                @click="handleSubmit"
             >
               注册
             </el-button>
@@ -198,7 +198,8 @@ const handleSubmit = async () => {
     if (activeTab.value === 'login') {
       // 登录
       const response = await axios.post('/api/login', loginForm);
-      if (response.data.code === 200) {
+      // 核心修改点：根据您的确认，后端返回的code为1表示成功
+      if (response.data.code === 1) { //
         const user = response.data.data;
         // 将 token 和用户信息存储到本地
         localStorage.setItem('token', user.token);
@@ -207,7 +208,6 @@ const handleSubmit = async () => {
         ElMessage.success('登录成功！');
 
         // 根据用户的角色进行跳转
-        // 您的后端登录接口返回 userLoginVO，其中包含 role 字段
         if (user.role === 0) {
           router.push('/student-dashboard');
         } else if (user.role === 1) {
@@ -222,16 +222,13 @@ const handleSubmit = async () => {
       }
     } else {
       // 注册
-      // 根据后端API，只发送需要的字段，不包含确认密码
       const { confirmPassword, ...registerData } = registerForm;
-      // 注册接口的参数是 passwordHash，这里将 password 字段值赋给 passwordHash
       const registerPayload = {
         ...registerData,
         passwordHash: registerData.password
       };
-      
       const response = await axios.post('/api/register', registerPayload);
-      if (response.data.code === 200) {
+      if (response.data.code === 1) {
         ElMessage.success('注册成功！请登录。');
         activeTab.value = 'login'; // 注册成功后自动切换回登录界面
         formRef.value.resetFields(); // 清空表单
