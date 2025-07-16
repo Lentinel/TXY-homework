@@ -1,7 +1,5 @@
 package com.edu.config;
 
-import com.edu.properties.AliOssProperties;
-import com.edu.utils.AliOssUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

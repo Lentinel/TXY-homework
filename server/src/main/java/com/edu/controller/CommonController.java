@@ -2,7 +2,6 @@ package com.edu.controller;
 
 
 import com.edu.result.Result;
-import com.edu.utils.AliOssUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
