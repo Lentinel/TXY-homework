@@ -45,16 +45,15 @@
       <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/CategoryVO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/CourseSaleVO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/QuestionAnswerVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/MyBatisConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/OssConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/CommonController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/DiscussionController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/DiscussionReplyController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumHomeController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumPostController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumReplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/NotificationController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ResourceDownloadController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/ChapterProgressController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/UserFavoriteController.java" afterDir="false" />
@@ -128,6 +127,8 @@
       <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/UserTypeConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/UserTypeConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/properties/JwtProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/result/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/result/PageResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu-platform-frontend" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
@@ -143,6 +144,7 @@
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseQueryPersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/CourseQueryPersonDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamPageQueryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserAdminUpdateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserAdminUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserLoginDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserOrderQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserOrderQueryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserPageQueryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/UserQueryDTO.java" afterDir="false" />
@@ -165,6 +167,7 @@
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/QuestionAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/QuestionAnswer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Role.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/SystemNotification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserChapterProgress.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserCoupon.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" afterDir="false" />
@@ -178,11 +181,12 @@
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/EduApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/EduApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ExamController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/ForumController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/StatisticsController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/AdminUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/StaticConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/StaticConroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/admin/StaticConroller.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/StudentCourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/LearningController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/OrderController.java" afterDir="false" />
@@ -216,9 +220,9 @@
       <list>
         <option value="AnnotationType" />
         <option value="spring-beans.schema" />
-        <option value="Vue Composition API Component" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Vue Composition API Component" />
         <option value="Class" />
       </list>
     </option>
@@ -273,7 +277,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true",
     "应用程序.EduApplication.executor": "Run"
@@ -290,11 +294,14 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.edu.vo" />
       <recent name="com.edu.dto" />
       <recent name="com.edu.mapper" />
-      <recent name="com.edu.vo" />
       <recent name="com.edu.service" />
       <recent name="com.edu.controller.admin" />
     </key>
@@ -306,6 +313,7 @@
       <recent name="D:\JAVA\Education-System\server\src\main\java" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JAVA\Education-System\platform\src\components" />
       <recent name="D:\JAVA\Education-System\server\src\main\java" />
       <recent name="D:\JAVA\Education-System\nginx-1.28.0" />
     </key>
@@ -386,6 +394,8 @@
       <workItem from="1752391987576" duration="7061000" />
       <workItem from="1752467898633" duration="15683000" />
       <workItem from="1752495200050" duration="19926000" />
+      <workItem from="1752571665384" duration="534000" />
+      <workItem from="1752588775527" duration="21081000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

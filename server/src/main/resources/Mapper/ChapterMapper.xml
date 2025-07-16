@@ -17,25 +17,25 @@
         update chapter
             <set>
                 <if test="title!=null">
-                    title=#{title}
+                    title=#{title},
                 </if>
                 <if test="description!=null">
-                    description = #{description}
+                    description = #{description},
                 </if>
                 <if test="sortOrder!=null">
-                    sort_order = #{sortOder}
+                    sort_order = #{sortOder},
                 </if>
                 <if test="contentType!=null">
-                    content_type = #{contentType}
+                    content_type = #{contentType},
                 </if>
                 <if test="estimatedTime!=null">
-                    estimated_time=#{estimatedTime}
+                    estimated_time=#{estimatedTime},
                 </if>
                 <if test="content!=null">
-                    content=#{content}
+                    content=#{content},
                 </if>
                 <if test="isRequired!=null">
-                    is_required=#{isRequired}
+                    is_required=#{isRequired},
                 </if>
                 <if test="updateTime!=null">
                     updated_at=#{updateTime}

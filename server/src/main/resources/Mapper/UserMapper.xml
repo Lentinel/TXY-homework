@@ -2,38 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.edu.mapper.UserMapper">
-    <insert id="CreateUser" useGeneratedKeys="true" keyProperty="">
-    insert into 'user' ('role',username,password_hash,email,phone,full_name,avatar_url,gender,birthday,user_status,created_at,updated_at,last_login_at)
+    <insert id="CreateUser" useGeneratedKeys="true" keyProperty="id">
+    insert into user (role,username,password_hash,email,phone,full_name,avatar_url,gender,birthday,user_status,created_at,updated_at,last_login_at)
     value
-    (#{role},#{username},#{passwordHash},#{email},#{phone},#{name},#{avatarUrl},#{gender},#{birthday},1,#{createTime},#{updateTime},{lastLoginAt})
+    (#{role},#{username},#{passwordHash},#{email},#{phone},#{name},#{avatarUrl},#{gender},#{birthday},1,#{createTime},#{updateTime},#{lastLoginAt})
     </insert>
     <update id="update" parameterType="com.edu.entity.User">
         update user
         <set>
-            <if test="username != null">username=#{userName}</if>
-            <if test="email != null">email=#{email}</if>
-            <if test="phone != null">phone = #{phone}</if>
-        <if test="name">full_name=#{name}</if>
-        <if test="avatarUrl != null">avatar_url=#{avatarUrl}</if>
-        <if test="gender != null">gender=#{gender}</if>
-        <if test="birthday != null">birthday=#{birthday}</if>
-        <if test="userStatus != null">user_status=#{userStatus}</if>
-        <if test="role!=null">role=#{role}</if>
-        <if test="updateTime!=null">updated_at=#{updateTime}</if>
+            <if test="username != null">username=#{username},</if>
+            <if test="email != null">email=#{email},</if>
+            <if test="passwordHash!=null">password_hash=#{passwordHash},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="name != null">full_name=#{name},</if>
+            <if test="avatarUrl != null">avatar_url=#{avatarUrl},</if>
+            <if test="gender != null">gender=#{gender},</if>
+            <if test="birthday != null">birthday=#{birthday},</if>
+            <if test="userStatus != null">user_status=#{userStatus},</if>
+            <if test="role!=null">role=#{role},</if>
+           updated_at=#{updateTime}
         </set>
         where id=#{id}
     </update>
-    <select id="pageQuery" resultType="com.edu.entity.User">
+    <select id="pageQuery" resultType="com.edu.vo.UserVO">
         select * from user
         <where>
-            <if test="name != null and name != ''">
-                and 'name' like concat('%',{nameSearch},'%')
+            <if test="nameSearch != null and nameSearch != ''">
+                and username like concat('%',#{nameSearch},'%')
             </if>
-            <if test="role != null">
-                and role = {roleSearch}
+            <if test="roleSearch != null">
+                and role = #{roleSearch}
             </if>
         </where>
-        order by username asc,create_at desc
+        order by username asc,created_at desc
     </select>
+
 
 </mapper>

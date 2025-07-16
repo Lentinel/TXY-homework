@@ -23,21 +23,21 @@
 
     <insert id="CreateRecord" parameterType="com.edu.entity.UserExamRecord">
         insert into user_exam_record <set>
-        user_id = #{userId}
-        exam_id = #{examId}
-        course_id=#{courseId}
-        status = #{status}
-        attempt_count=#{attemptCount}
-        startTime=#{startTime}
-        created_at=#{startTime}
+        user_id = #{userId},
+        exam_id = #{examId},
+        course_id=#{courseId},
+        status = #{status},
+        attempt_count=#{attemptCount},
+        startTime=#{startTime},
+        created_at=#{startTime},
         updated_at=#{startTime}
     </set>
     </insert>
 
     <update id="tryAgain" parameterType="com.edu.entity.UserExamRecord">
         update user_exam_record <set>
-        status=#{status}
-        attempt_count=#{attemptCount}
+        status=#{status},
+        attempt_count=#{attemptCount},
         start_time=#{startTime}
 
     </set>
@@ -48,25 +48,25 @@
         update user_exam_record
             <set>
                 <if test="score!=null">
-                    score=#{score}
+                    score=#{score},
                 </if>
                 <if test="isPassed!=null">
-                    is_passed=#{isPassed}
+                    is_passed=#{isPassed},
                 </if>
                 <if test="attemptCount!=null">
-                    attempt_count=#{attemptCount}
+                    attempt_count=#{attemptCount},
                 </if>
                 <if test="status!=null">
-                    status=#{status}
+                    status=#{status},
                 </if>
                 <if test="submitTime!=null">
-                    submit_time=#{submitTime}
+                    submit_time=#{submitTime},
                 </if>
                 <if test="answers!=null">
-                    answers=#{answers}
+                    answers=#{answers},
                 </if>
                 <if test="review!=null">
-                    review=#{review}
+                    review=#{review},
                 </if>
                 updated_at=#{updatedAt}
             </set>
@@ -79,15 +79,15 @@
 
     <update id="updateAns">
         update question_answer <set>
-        updated_at=#{updatedAt}
+        updated_at=#{updatedAt},
         content=#{content}
     </set>
         where user_id=#{userId} and exam_id=#{examId}
     </update>
 
     <insert id="creatAns">
-        insert into question_answer ( content, user_id, created_at, updated_at, exam_id, question_id,sortOrder) VALUES
-            (#{content},#{userId},#{createdAt},#{updatedAt},#{examId},#{questionId},#{sortOrder})
+        insert into question_answer (title,content, user_id, created_at, updated_at, exam_id, question_id,sortOrder) VALUES
+            (#{title},#{content},#{userId},#{createdAt},#{updatedAt},#{examId},#{questionId},#{sortOrder})
     </insert>
 
     <select id="getUserAnswers" resultType="com.edu.entity.QuestionAnswer">
@@ -105,19 +105,19 @@
     <update id="updateExam" parameterType="com.edu.entity.Exam">
         update exam <set>
         <if test="title!=null">
-            title=#{title}
+            title=#{title},
         </if>
         <if test="description!=null">
-            description=#{description}
+            description=#{description},
         </if>
         <if test="duration!=null">
-            duration=#{duration}
+            duration=#{duration},
         </if>
         <if test="passingScore!=null">
-            passing_score=#{passingScore}
+            passing_score=#{passingScore},
         </if>
         <if test="status!=null">
-            status=#{status}
+            status=#{status},
         </if>
         <if test="maxAttempts!=null">
             max_attempts=#{maxAttempts}

@@ -14,6 +14,68 @@ const routes = [
     component: () => import('@/components/layout/BasicLayout.vue'),
     redirect: '/dashboard',
     children: [
+      // 学生主页，例如，可以显示课程学习进度、我的问答等
+      {
+        path: 'student-dashboard',
+        name: 'StudentDashboard',
+        component: () => import('@/views/student/StudentDashboard.vue'),
+        meta: { title: '学生主页', requiresAuth: true, roles: [0] }
+      },
+// 教师主页，例如，可以显示课程管理、学生问答等
+      {
+        path: 'teacher-dashboard',
+        name: 'TeacherDashboard',
+        component: () => import('@/views/teacher/TeacherDashboard.vue'),
+        meta: { title: '教师主页', requiresAuth: true, roles: [1] }
+      },
+// 管理员主页，例如，可以显示用户管理、课程审核等
+      {
+        path: 'admin-dashboard',
+        name: 'AdminDashboard',
+        component: () => import('@/views/admin/AdminDashboard.vue'),
+        meta: { title: '管理员主页', requiresAuth: true, roles: [2] }
+      },
+      {
+        path: 'home',
+        name: 'HomePage',
+        component: () => import('@/views/HomePage.vue'),
+        meta: { title: '主页' }
+      },{
+        path: 'course/:courseId/discussions',
+        name: 'DiscussionListPage',
+        component: () => import('@/views/DiscussionListPage.vue'),
+        props: true,
+        meta: { title: '课程讨论' }
+      },
+      {
+        path: 'course/:courseId/discussions/create',
+        name: 'CreateDiscussion',
+        component: () => import('@/views/CreateDiscussion.vue'),
+        props: true,
+        meta: { title: '发布讨论' }
+      },
+      {
+        path: 'course/:courseId/discussions/:discussionId',
+        name: 'DiscussionDetail',
+        component: () => import('@/views/DiscussionDetail.vue'),
+        props: true,
+        meta: { title: '讨论详情' }
+      },
+// 课程进度模块
+      {
+        path: 'course/:courseId/progress',
+        name: 'CourseProgressPage',
+        component: () => import('@/views/CourseProgressPage.vue'),
+        props: true,
+        meta: { title: '学习进度' }
+      },
+// 用户收藏模块
+      {
+        path: 'user/favorites',
+        name: 'UserFavoritesPage',
+        component: () => import('@/views/UserFavoritesPage.vue'),
+        meta: { title: '我的收藏' }
+      },
       // ----------------- 原有课程管理路由 START -----------------
       {
         path: 'dashboard',

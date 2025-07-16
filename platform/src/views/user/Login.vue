@@ -6,7 +6,7 @@
           <span>{{ isLogin ? '登录' : '注册' }}</span>
         </div>
       </template>
-      
+
       <el-form
         ref="formRef"
         :model="form"
@@ -17,7 +17,7 @@
         <el-form-item label="用户名" prop="username">
           <el-input v-model="form.username" placeholder="请输入用户名" />
         </el-form-item>
-        
+
         <el-form-item label="密码" prop="password">
           <el-input
             v-model="form.password"
@@ -37,19 +37,19 @@
               show-password
             />
           </el-form-item>
-          
+
           <el-form-item label="邮箱" prop="email">
             <el-input v-model="form.email" placeholder="请输入邮箱" />
           </el-form-item>
-          
+
           <el-form-item label="手机号" prop="phone">
             <el-input v-model="form.phone" placeholder="请输入手机号" />
           </el-form-item>
-          
+
           <el-form-item label="角色" prop="role">
             <el-radio-group v-model="form.role">
-              <el-radio label="student">学生</el-radio>
-              <el-radio label="teacher">教师</el-radio>
+              <el-radio label="0">学生</el-radio>
+              <el-radio label="1">教师</el-radio>
             </el-radio-group>
           </el-form-item>
         </template>
@@ -87,7 +87,7 @@ const form = reactive({
   confirmPassword: '',
   email: '',
   phone: '',
-  role: 'student'
+  role: '0'
 })
 
 // 表单验证规则
@@ -101,9 +101,9 @@ const rules = reactive({
     { min: 6, message: '密码不能少于 6 个字符', trigger: 'blur' }
   ],
   confirmPassword: [
-    { 
-      required: true, 
-      message: '请确认密码', 
+    {
+      required: true,
+      message: '请确认密码',
       trigger: 'blur',
       validator: (rule, value, callback) => {
         if (value !== form.password) {
@@ -136,11 +136,11 @@ const toggleMode = () => {
 // 提交表单
 const handleSubmit = async () => {
   if (!formRef.value) return
-  
+
   try {
     await formRef.value.validate()
     loading.value = true
-    
+
     if (isLogin.value) {
       // 登录
       const res = await userStore.login(form.username, form.password)
@@ -153,7 +153,8 @@ const handleSubmit = async () => {
         passwordHash: form.password, // 注意：实际项目中密码应该在前端进行加密
         email: form.email,
         phone: form.phone,
-        role: form.role
+        role: form.role,
+        comfirmPassword:form.confirmPassword
       })
       ElMessage.success('注册成功')
       isLogin.value = true

@@ -6,6 +6,8 @@ import com.edu.entity.Course;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDateTime;
+
 @Mapper
 public interface CourseMapper {
 
@@ -22,4 +24,8 @@ public interface CourseMapper {
     void insert(Course course);
 
     void delete(long courseId);
+
+    void enroll(long courseId, long userId, LocalDateTime localDateTime);
+
+    Long getEnroll(long courseId, long userId);
 }

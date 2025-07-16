@@ -73,7 +73,7 @@ export default {
   name: 'Dashboard',
   data() {
     return {
-      userName: '管理员', // 示例用户名，实际应从登录用户信息中获取
+      username: '管理员', // 示例用户名，实际应从登录用户信息中获取
       courseCount: 0,
       publishedCourseCount: 0,
       studentCount: 0,
@@ -100,7 +100,7 @@ export default {
           this.studentCount = stats.studentCount || 0;
           this.teacherCount = stats.teacherCount || 0;
           // 假设可以获取用户名
-          this.userName = stats.userName || '管理员';
+          this.username = stats.username || '管理员';
         }
       } catch (error) {
         console.error('获取仪表盘数据失败:', error);

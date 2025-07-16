@@ -25,6 +25,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private JwtProperties jwtProperties;
+
     @PostMapping("/register")
     public Result<UserRegisterVO> register(@RequestBody UserRegisterDTO userRegisterDTO)
     {
@@ -41,7 +42,7 @@ public class UserController {
 
         UserRegisterVO userRegisterVO = UserRegisterVO.builder()
                 .id(user.getId())
-                .userName(user.getUsername())
+                .username(user.getUsername())
                 .name(user.getName())
                 .token(token)
                 .build();
@@ -63,13 +64,15 @@ public class UserController {
                 jwtProperties.getAdminTtl(),
                 claims
         );
+
         UserLoginVO userLoginVO = UserLoginVO.builder()
                 .id(user.getId())
-                .userName(user.getUsername())
+                .username(user.getUsername())
                 .name(user.getName())
                 .token(token)
+                .role(user.getRole())
                 .build();
-        return Result.success();
+        return Result.success(userLoginVO);
     }
 
 }

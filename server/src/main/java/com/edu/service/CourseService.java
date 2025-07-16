@@ -87,4 +87,6 @@ public interface CourseService {
     PageResult getStudents(long courseId);
 
     void createChapter(Chapter chapter);
+
+    void enroll(long courseId, long userId);
 }

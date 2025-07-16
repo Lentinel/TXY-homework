@@ -10,6 +10,7 @@ import com.edu.entity.User;
 import com.edu.mapper.UserMapper;
 import com.edu.result.PageResult;
 import com.edu.service.UserService;
+import com.edu.vo.UserVO;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -26,18 +28,33 @@ public class UserServiceImpl implements UserService {
     public User login(UserLoginDTO userLoginDTO)
     {
         String password= userLoginDTO.getPassword();
-        String userName = userLoginDTO.getUserName();
-        User user = userMapper.getByPhone(userName);
+        String userName = userLoginDTO.getUsername();
+
+
+        User user=new User();
+        user = userMapper.getByPhone(userName);
         if(user==null)
         {
-            throw new LoginException(MessageConstant.USER_NOT_FOUND);
+            user=userMapper.getByUsername(userName);
+            if(user==null) {
+                user=userMapper.getByEmail(userName);
+                if(user==null) {
+                    throw new LoginException(MessageConstant.USER_NOT_FOUND);
+                }
+            }
         }
-        if(password!=user.getPasswordHash())
+        if(user.getUserStatus()!=1)
         {
-            throw new LoginException(MessageConstant.PASSWORD_NOT_FIT);
+            throw new RuntimeException("账户状态异常");
+
         }
-        user.setLastLoginAt(LocalDateTime.now());
-        userMapper.login(user);
+        {
+            if (!Objects.equals(password, user.getPasswordHash())) {
+                throw new LoginException(MessageConstant.PASSWORD_NOT_FIT);
+            }
+            user.setLastLoginAt(LocalDateTime.now());
+            userMapper.login(user);
+        }
         return user;
     }
 
@@ -45,9 +62,14 @@ public class UserServiceImpl implements UserService {
     {
 
         String password=userRegisterDTO.getPasswordHash();
-        String confirmPassword=userRegisterDTO.getComfirmPasswordHash();
+        String confirmPassword=userRegisterDTO.getComfirmPassword();
+
         password= DigestUtils.md5DigestAsHex(password.getBytes());
         confirmPassword=DigestUtils.md5DigestAsHex(confirmPassword.getBytes());
+        User existingUser = userMapper.getByUsername(userRegisterDTO.getUsername());
+        if (existingUser != null) {
+            throw new RegisterErrorException("用户名已存在");
+        }
         if(password.equals(confirmPassword))
         {
             if(userRegisterDTO.getPhone()!= null &&userRegisterDTO.getUsername()!=null) {
@@ -85,23 +107,32 @@ public class UserServiceImpl implements UserService {
 
             PageHelper.startPage(userPageQueryDTO.getPage(),userPageQueryDTO.getPageSize());
             //下一条sql进行分页，自动加入limit关键字分页
-            Page<User> page = userMapper.pageQuery(userPageQueryDTO);
+            Page<UserVO> page = userMapper.pageQuery(userPageQueryDTO);
             return new PageResult(page.getTotal(), page.getResult());
 
     }
 
 
-    public User getUser(long id) {
-        User user=userMapper.getUser(id);
-        user.setPasswordHash("******");
+    public UserVO getUser(long id) {
+        UserVO user=userMapper.getUser(id);
+        //user.setPasswordHash("******");
         return user;
     }
 
     @Override
     public void adminUpdate(UserAdminUpdateDTO userAdminUpdateDTO) {
         User user=new User();
-        BeanUtils.copyProperties(user,userAdminUpdateDTO);
-        userMapper.update(user);
+        BeanUtils.copyProperties(userAdminUpdateDTO,user);
+        UserVO c=userMapper.getUser(userAdminUpdateDTO.getId());
+        if(user.getRole()!=null&&(user.getRole()!=1&&user.getRole()!=0)||c.getRole()==2)
+        {
+            throw new RuntimeException("用户类型操作错误");
+        }
+        else {
+            user.setUpdateTime(LocalDateTime.now());
+
+            userMapper.update(user);
+        }
     }
 
     @Override
@@ -109,6 +140,7 @@ public class UserServiceImpl implements UserService {
         User user=new User();
         user.setUserStatus(status);
         user.setId(id);
+        user.setUpdateTime(LocalDateTime.now());
         userMapper.update(user);
     }
 
@@ -117,6 +149,7 @@ public class UserServiceImpl implements UserService {
         User user=new User();
         user.setId(id);
         user.setPasswordHash(UserTypeConstant.PDW);
+        user.setUpdateTime(LocalDateTime.now());
         userMapper.update(user);
     }
 

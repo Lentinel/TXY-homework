@@ -10,21 +10,21 @@
         update course_category
             <set>
                 <if test="parentdId!=null">
-                    parent_id=#{parent_id}
+                    parent_id=#{parent_id},
                 </if>
                 <if test="name!=null">
-                    name=#{name}
+                    name=#{name},
                 </if>
                 <if test="description!=null">
-                    description=#{description}
+                    description=#{description},
                 </if>
                 <if test="sortOrder!=null">
-                    sort_order=#{sortOrder}
+                    sort_order=#{sortOrder},
 
                 </if>
-                <if test="updateTime!=null">
+
                     updated_at=#{updateTime}
-                </if>
+
             </set>
         where id=#{id}
     </update>
@@ -41,5 +41,12 @@
 
     <select id="getById" resultType="com.edu.entity.Category" parameterType="long">
         select id,parent_id  from course_category
+    </select>
+
+    <select id="pageQuery" resultType="com.edu.entity.Category">
+        select * from course_category <if test="name != null and name != ''">
+        where course_category.name like concat('%',#{name},'%')
+    </if>
+        order by name desc
     </select>
 </mapper>

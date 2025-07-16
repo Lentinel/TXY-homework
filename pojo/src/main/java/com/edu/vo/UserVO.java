@@ -1,4 +1,4 @@
-package com.edu.entity;
+package com.edu.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -8,12 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Date;
-
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class User {
+@Builder
+public class UserVO {
     private long id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
@@ -21,7 +20,6 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
     private String username;
-    private String passwordHash;
     private String email;
     private String phone;
     private String name;

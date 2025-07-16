@@ -21,50 +21,57 @@ import java.time.LocalDateTime;
 public class StudentCourseController {
     @Autowired
     private CourseService courseService;
-    @GetMapping("/categories")
-    public Result<PageResult> categories(CategoryPageQueryDTO categoryPageQueryDTO)
+    @GetMapping("/categories")//OK
+    public Result<PageResult> categories(@RequestBody CategoryPageQueryDTO categoryPageQueryDTO)
     {
         PageResult pageResult = courseService.categoryPageQuery(categoryPageQueryDTO);
         return Result.success(pageResult);
     }
-    @GetMapping("/courses")
-    public Result<PageResult> page(CoursePageQueryDTO coursePageQueryDTO)
+    @GetMapping("/courses")//ok
+    public Result<PageResult> page(@RequestBody CoursePageQueryDTO coursePageQueryDTO)
     {
         log.info("课程分页查询{}", coursePageQueryDTO);
         PageResult pageResult=courseService.pageQuery(coursePageQueryDTO);
         return Result.success(pageResult);
     }
-    @GetMapping("/detail/{courseId}")
-    public Result<Course> courseDetails(long courseId)
+    @GetMapping("/detail/{courseId}")//OK
+    public Result<Course> courseDetails(@PathVariable("courseId") long courseId)
     {
         log.info("查询课程详情{}",courseId);
         Course course=courseService.detailQuery(courseId);
         return Result.success(course);
     }
     @GetMapping("/{id}/course")
-    public Result<PageResult> myCourses(CourseQueryPersonDTO courseQueryPersonDTO)
+    public Result<PageResult> myCourses(@RequestBody CourseQueryPersonDTO courseQueryPersonDTO)
     {
         log.info("查询用户课程{}",courseQueryPersonDTO);
         PageResult pageResult=courseService.personPageQuery(courseQueryPersonDTO);
         return Result.success(pageResult);
     }
-
-    @GetMapping("/{courseId}/chapter")
-    public Result<PageResult> chapters(ChapterPageQueryDTO chapterPageQueryDTO)
+    @PostMapping("/{courseId}/enroll/{userId}")//ok
+    public Result<String> enroll(@PathVariable("courseId")long courseId,
+                                 @PathVariable("userId")long userId)
+    {
+        log.info("用户加入课程");
+        courseService.enroll(courseId,userId);
+        return Result.success();
+    }
+    @GetMapping("/{courseId}/chapter")//
+    public Result<PageResult> chapters(@RequestBody ChapterPageQueryDTO chapterPageQueryDTO)
     {
         log.info("查询课程章节{}",chapterPageQueryDTO);
         PageResult pageResult=courseService.chapters(chapterPageQueryDTO);
         return Result.success(pageResult);
     }
     @GetMapping("/{courseId}/chapter/{chapterId}")
-    public Result<ChapterVO> enterChapter(ChapterDTO chapterDTO)
+    public Result<ChapterVO> enterChapter(@RequestBody ChapterDTO chapterDTO)
     {
         log.info("进入章节{}",chapterDTO);
         ChapterVO chapterVO=courseService.chapter(chapterDTO);
         return Result.success(chapterVO);
     }
     @GetMapping("/{courseId}/exams")
-    public Result<PageResult> exams(ExamPageQueryDTO examPageQueryDTO)
+    public Result<PageResult> exams(@RequestBody ExamPageQueryDTO examPageQueryDTO)
     {
         log.info("查询课程考试信息{}",examPageQueryDTO);
         PageResult pageResult=courseService.examsQuery(examPageQueryDTO);

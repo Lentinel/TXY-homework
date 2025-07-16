@@ -18,7 +18,7 @@ public class CourseController {
     private CourseService courseService;
 
     @GetMapping("/course-page")
-    public Result<PageResult> page(CoursePageQueryDTO coursePageQueryDTO)
+    public Result<PageResult> page( CoursePageQueryDTO coursePageQueryDTO)
     {
         log.info("课程分页查询{}", coursePageQueryDTO);
         PageResult pageResult=courseService.pageQuery(coursePageQueryDTO);
@@ -85,6 +85,7 @@ public class CourseController {
         courseService.deleteCategory(id);
         return Result.success();
     }
+
     @DeleteMapping("/{courseId}")
     public Result<String> deleteCourse(@PathVariable("courseId")long courseId)
     {
@@ -92,8 +93,9 @@ public class CourseController {
         courseService.deleteCourse(courseId);
         return Result.success();
     }
-    @GetMapping("/category")
-    public Result<PageResult> categoryPageQuery(CategoryPageQueryDTO categoryPageQueryDTO)
+    //牛魔的不知道为什么寄了
+    @GetMapping("/category-page")
+    public Result<PageResult> categoryPageQuery(@RequestBody CategoryPageQueryDTO categoryPageQueryDTO)
     {
         log.info("分类分页查询{}", categoryPageQueryDTO);
         PageResult pageResult=courseService.categoryPageQuery(categoryPageQueryDTO);

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserRegisterVO {
     private Long id;
-    private String userName;
+    private String username;
     private String name ;
     private String token;
 

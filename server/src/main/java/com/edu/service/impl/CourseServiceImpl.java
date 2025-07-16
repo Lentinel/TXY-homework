@@ -186,7 +186,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public PageResult categoryPageQuery(CategoryPageQueryDTO categoryPageQueryDTO) {
         PageHelper.startPage(categoryPageQueryDTO.getPage(), categoryPageQueryDTO.getPageSize());
-        Page<Course> page=categoryMapper.pageQuery(categoryPageQueryDTO);
+        Page<Category> page=categoryMapper.pageQuery(categoryPageQueryDTO);
         return new PageResult(page.getTotal(),page.getResult());
     }
 
@@ -366,6 +366,18 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public void createChapter(Chapter chapter) {
         chapterMapper.createChapter(chapter);
+    }
+
+    @Override
+    public void enroll(long courseId, long userId) {
+        Long id = courseMapper.getEnroll(courseId,userId);
+        if(id==null||id==0) {
+            courseMapper.enroll(courseId, userId, LocalDateTime.now());
+        }
+        else
+        {
+            throw new RuntimeException("您已经加入过该课程");
+        }
     }
 
 

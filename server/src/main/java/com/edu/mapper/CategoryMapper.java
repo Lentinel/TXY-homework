@@ -2,7 +2,6 @@ package com.edu.mapper;
 
 import com.edu.dto.CategoryPageQueryDTO;
 import com.edu.entity.Category;
-import com.edu.entity.Course;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,5 +18,5 @@ public interface CategoryMapper {
 
     void deleteParentId(long id);
 
-    Page<Course> pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
+    Page<Category> pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);
 }

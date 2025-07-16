@@ -13,7 +13,7 @@ public class UserLoginVO {
 
     private long id;
     private String name;
-    private String userName;
-    private String role;
+    private String username;
+    private Integer role;
     private String token;
 }

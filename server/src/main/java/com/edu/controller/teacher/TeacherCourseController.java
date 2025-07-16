@@ -19,7 +19,7 @@ public class TeacherCourseController {
     private CourseService courseService;
 
     @PostMapping
-    public Result<String> createCourse(@RequestBody TeacherCourseDTO teacherCourseDTO)
+    public Result<String> createCourse(@RequestBody TeacherCourseDTO teacherCourseDTO)//ok
     {
         log.info("建立课程{}",teacherCourseDTO);
         Course course=new Course();
@@ -28,14 +28,14 @@ public class TeacherCourseController {
         return Result.success();
     }
     @DeleteMapping("/{id}")
-    public Result takeoffCourse(@PathVariable("id")long id)
+    public Result<String> takeoffCourse(@PathVariable("id")long id)
     {
         log.info("下架课程{}",id);
         courseService.takeoffCourse(id);
         return Result.success();
     }
     @PutMapping("/{courseId}/desc")
-    public Result updateCourseDESC(@PathVariable("courseId")long courseId, String desc)
+    public Result<String> updateCourseDESC(@PathVariable("courseId")long courseId, String desc)
     {
         log.info("更新课程");
         Course course=new Course();
