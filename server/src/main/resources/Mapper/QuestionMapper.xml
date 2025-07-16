@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.mapper.QuestionMapper">
+
+    <!-- 根据ID查询试题 -->
+    <select id="selectById" parameterType="long" resultType="com.edu.entity.Question">
+        SELECT
+            id, question_type, content, options, answer,
+            difficulty, score, creator_id, created_at, updated_at
+        FROM question
+        WHERE id = #{id}
+    </select>
+
+    <!-- 批量查询试题 -->
+    <select id="selectByIds" parameterType="map" resultType="com.edu.entity.Question">
+        SELECT
+        id, question_type, content, options, answer,
+        difficulty, score, creator_id, created_at, updated_at
+        FROM question
+        WHERE id IN
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 新增试题 -->
+    <insert id="insert" parameterType="com.edu.entity.Question">
+        INSERT INTO question (
+            question_type, content, options, answer,
+            difficulty, score, creator_id, created_at, updated_at
+        ) VALUES (
+                     #{questionType}, #{content}, #{options}, #{answer},
+                     #{difficulty}, #{score}, #{creatorId},
+                     NOW(), NOW()
+                 )
+    </insert>
+
+    <!-- 更新试题 -->
+    <update id="update" parameterType="com.edu.entity.Question">
+        UPDATE question
+        <set>
+            <if test="questionType != null">question_type = #{questionType},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="options != null">options = #{options},</if>
+            <if test="answer != null">answer = #{answer},</if>
+            <if test="difficulty != null">difficulty = #{difficulty},</if>
+            <if test="score != null">score = #{score},</if>
+            updated_at = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除试题 -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM question WHERE id = #{id}
+    </delete>
+
+    <!-- 分页查询试题（用于题库管理） -->
+    <select id="selectByCondition" resultType="com.edu.entity.Question">
+        SELECT
+        id, question_type, content, options, answer,
+        difficulty, score, creator_id, created_at
+        FROM question
+        <where>
+            <if test="questionType != null">AND question_type = #{questionType}</if>
+            <if test="difficulty != null">AND difficulty = #{difficulty}</if>
+            <if test="keyword != null and keyword != ''">
+                AND content LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="creatorId != null">AND creator_id = #{creatorId}</if>
+        </where>
+        ORDER BY created_at DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <!-- 统计符合条件的试题总数 -->
+    <select id="countByCondition" resultType="int">
+        SELECT COUNT(*) FROM question
+        <where>
+            <if test="questionType != null">AND question_type = #{questionType}</if>
+            <if test="difficulty != null">AND difficulty = #{difficulty}</if>
+            <if test="keyword != null and keyword != ''">
+                AND content LIKE CONCAT('%', #{keyword}, '%')
+            </if>
+            <if test="creatorId != null">AND creator_id = #{creatorId}</if>
+        </where>
+    </select>
+</mapper>
