@@ -1,16 +1,21 @@
 package com.edu.utils;
 
+import com.edu.properties.JwtProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Map;
-
+@Component
 public class JwtUtil {
 
+    @Autowired
+    private JwtProperties jwtProperties;
     /**
      * 生成 JWT 令牌
      * @param secretKey 密钥（JDK 21 下建议至少 32 位长度）
@@ -43,5 +48,9 @@ public class JwtUtil {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+    public Long getUserIdFromToken(String token) {
+        Claims claims = parseJWT(jwtProperties.getAdminSecretKey(),token);
+        return claims.get("userId", Long.class); // 从载荷中获取 userId 字段
     }
 }

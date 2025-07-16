@@ -191,7 +191,7 @@ const routes = [
         component: () => import('@/views/DiscussionDetail.vue'),
         props: true,
         meta: { title: '讨论详情' }
-      }
+      },
       // ----------------- 课程讨论模块路由 END -----------------
  
 

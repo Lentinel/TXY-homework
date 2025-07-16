@@ -54,4 +54,6 @@ public interface QuestionMapper {
             @Param("keyword") String keyword,
             @Param("creatorId") Long creatorId
     );
+
+    void updateById(Question question);
 }

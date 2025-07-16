@@ -8,8 +8,10 @@ import com.edu.entity.Question;
 import com.edu.entity.QuestionAnswer;
 import com.edu.entity.UserExamRecord;
 import com.github.pagehelper.Page;
+import io.lettuce.core.dynamic.annotation.Param;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Mapper
@@ -65,4 +67,12 @@ public interface ExamMapper {
     UserExamRecord getRecordById(long recordId);
 
     void createQuestionLink(long id, long examId, int sortOrder, Integer score);
+
+    BigDecimal getRecordScore(long recordId);
+
+    void insert(Exam exam);
+    void update(Exam exam);
+    Exam selectById(Long id);
+    List<Exam> selectByCourseId(Long courseId);
+    void updateStatus(@Param("id") Long id, @Param("status") Integer status);
 }
