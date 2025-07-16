@@ -1,25 +1,27 @@
 package com.edu.entity;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class QuestionAnswer {
     private long id;
     private String title;
     private String content;
-    private Long userId;
-    private Long courseId;
-    private Integer viewCount;
-    private Integer answerCount;
-    private Integer status;
-    private Boolean isSolved;
+    private long userId;
+    private long questionId;
+    private long examId;
+    private LocalDateTime CreatedAt;
+    private LocalDateTime updatedAt;
+    private long sortOrder;
+    private long score;
 
-    // 关联用户
-    private User user;
-
-    // 关联课程
-    private Course course;
-
-    // 关联回答
-    private List<Answer> answers;
 
 }

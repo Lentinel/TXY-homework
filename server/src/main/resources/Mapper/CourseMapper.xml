@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.edu.mapper.CourseMapper">
+    <update id="update" parameterType="com.edu.entity.Course">
+        update course 
+            <set>
+                <if test="title != null">
+                    title = #{title},
+                </if>
+                <if test="description!=null">
+                    description = #{description},
+                </if>
+                <if test="duration != null">
+                    duration=#{duration},
+                </if>
+                <if test="difficulty != null">
+                    difficulty = #{difficulty},
+
+                </if>
+                <if test="price != null">
+                    price=#{price},
+                </if>
+                <if test="recommend !=null">
+                    recommend = #{recommend},
+                </if>
+                <if test="status != null">
+                    status = #{status},
+                </if>
+                <if test="instructorId!=null">
+                    instructor_id = #{instructorId},
+                </if>
+                <if test="categoryId!=null">
+                    category_id = #{categoryId},
+                </if>
+                <if test="updateTime!=null">
+                    updated_at=#{updateTime}
+                </if>
+            </set>
+        where id=#{id}
+    </update>
+    <update id="deleteCategory">
+        update course
+            <set>
+                category_id=(-1)
+            </set>
+        where category_id=#{id}
+    </update>
+    <select id="pageQuery" resultType="com.edu.entity.Course">
+        select * from course left join course_statistics on course.id = course_statistics.course_id
+        <where>
+            <if test="categoryId!=null and categoryId != 0">
+                and category_id=#{categoryId}
+            </if>
+            <if test="title!=null and title!=''">
+                and title like concat('%',#{title},'%')
+            </if>
+            <if test="recommend !=null">
+                and recommend = #{recommend}
+            </if>
+        </where>
+        order by title desc
+    </select>
+    <select id="query" resultType="com.edu.entity.Course">
+        select * from course where id = #{id}
+    </select>
+    <select id="personPageQuery" resultType="com.edu.entity.Course">
+        select * from course left join course_enrollment on course.id = course_enrollment.course_id where user_id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.edu.entity.Course">
+        insert into course( title, description, instructor_id, category_id, duration, difficulty, status, price, created_at, updated_at)
+        VALUES (#{title},#{description},#{instructorId},#{categoryId},#{duration},#{difficulty},#{status},#{price},#{createTime},#{updateTime})
+    </insert>
+
+    <delete id="delete">
+        delete from course where id=#{courseId}
+    </delete>
+
+    <insert id="enroll">
+        insert into course_enrollment <set>
+        user_id=#{userId},course_id=#{courseId},status=1,progress=0,start_time=#{param3},created_at=#{param3},updated_at=#{param3}
+    </set>
+    </insert>
+
+    <select id="getEnroll" resultType="java.lang.Long">
+        select status from course_enrollment where course_id=#{courseId} and user_id=#{userId}
+    </select>
+
+    <select id="TeacherPageQuery" resultType="com.edu.entity.Course">
+        select * from course where instructor_id=#{instructorId}
+    </select>
+</mapper>

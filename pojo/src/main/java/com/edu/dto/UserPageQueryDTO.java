@@ -1,5 +1,8 @@
 package com.edu.dto;
 
+import lombok.Data;
+
+@Data
 public class UserPageQueryDTO {
     private int pageSize;
     private int page;

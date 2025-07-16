@@ -3,6 +3,7 @@ package com.edu.service;
 import com.edu.dto.*;
 import com.edu.entity.User;
 import com.edu.result.PageResult;
+import com.edu.vo.UserVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,7 +15,11 @@ public interface UserService {
 
     PageResult getUsers(UserPageQueryDTO userPageQueryDTO);
 
-    User getUser(UserQueryDTO userQueryDTO);
+    UserVO getUser(long id);
 
     void adminUpdate(UserAdminUpdateDTO userAdminUpdateDTO);
+
+    void startOrStop(Integer status, long id);
+
+    void resetPassword(long id);
 }

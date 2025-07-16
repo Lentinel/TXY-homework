@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ForumSectionMapper">
+
+    <select id="selectAllEnabled" resultType="com.edu.entity.ForumSection">
+        SELECT * FROM forum_section
+        WHERE status = 1
+        ORDER BY sort_order ASC
+    </select>
+
+    <select id="selectById" resultType="com.edu.entity.ForumSection">
+        SELECT * FROM forum_section WHERE id = #{id}
+    </select>
+
+    <update id="incrementPostCount">
+        UPDATE forum_section
+        SET post_count = post_count + 1
+        WHERE id = #{sectionId}
+    </update>
+</mapper>

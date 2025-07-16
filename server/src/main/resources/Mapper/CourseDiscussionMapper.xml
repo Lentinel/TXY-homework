@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.mapper.CourseDiscussionMapper">
+
+    <resultMap id="DiscussionDetailMap" type="com.edu.entity.CourseDiscussion">
+        <id property="id" column="id" />
+        <result property="courseId" column="course_id" />
+        <result property="authorId" column="author_id" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="type" column="type" />
+        <result property="status" column="status" />
+        <result property="replyCount" column="reply_count" />
+        <result property="viewCount" column="view_count" />
+        <result property="createTime" column="create_time" />
+        <result property="updateTime" column="update_time" />
+
+        <!-- 关联作者信息 -->
+        <association property="author" javaType="com.edu.entity.User">
+            <id property="id" column="user_id" />
+            <result property="username" column="username" />
+            <result property="name" column="full_name" />
+            <result property="avatarUrl" column="avatar_url" />
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.edu.entity.CourseDiscussion">
+        INSERT INTO course_discussion
+        (course_id, author_id, title, content, type, status, reply_count, view_count, create_time)
+        VALUES
+            (#{courseId}, #{authorId}, #{title}, #{content}, #{type}, #{status}, #{replyCount}, #{viewCount}, #{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.edu.entity.CourseDiscussion">
+        UPDATE course_discussion
+        SET course_id = #{courseId},
+            title = #{title},
+            content = #{content},
+            type = #{type},
+            status = #{status},
+            reply_count = #{replyCount},
+            view_count = #{viewCount},
+            update_time = #{updateTime}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.edu.entity.CourseDiscussion">
+        SELECT * FROM course_discussion WHERE id = #{id}
+    </select>
+
+    <select id="selectDetailById" resultMap="DiscussionDetailMap">
+        SELECT
+            d.*,
+            u.id AS user_id,
+            u.username,
+            u.full_name,
+            u.avatar_url
+        FROM course_discussion d
+                 LEFT JOIN user u ON d.author_id = u.id
+        WHERE d.id = #{id}
+          AND d.status = 1
+    </select>
+
+    <select id="selectByCourseId" resultType="com.edu.entity.CourseDiscussion">
+        SELECT *
+        FROM course_discussion
+        WHERE course_id = #{courseId}
+          AND status = 1
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="selectGlobalDiscussions" resultType="com.edu.entity.CourseDiscussion">
+        SELECT *
+        FROM course_discussion
+        WHERE course_id IS NULL
+          AND status = 1
+        ORDER BY create_time DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <update id="incrementReplyCount">
+        UPDATE course_discussion
+        SET reply_count = reply_count + 1
+        WHERE id = #{discussionId}
+    </update>
+
+</mapper>

@@ -7,12 +7,11 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://${edu.datasource.host}:${edu.datasource.port}/${edu.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${edu.datasource.username}
       password: ${edu.datasource.password}
-
 
 
 mybatis:
@@ -26,7 +25,7 @@ mybatis:
 logging:
   level:
     com:
-      sky:
+      edu:
         mapper: debug
         service: info
         controller: info
@@ -34,13 +33,19 @@ logging:
 edu:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    admin-secret-key: theCastSecretKeyTheCastSecretKey
     # 设置jwt过期时间
     admin-ttl: 7200000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
-  alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
+  #alioss:
+  #  endpoint: ${sky.alioss.endpoint}
+  #  access-key-id: ${sky.alioss.access-key-id}
+  #  access-key-secret: ${sky.alioss.access-key-secret}
+  #  bucket-name: ${sky.alioss.bucket-name}
+# 正确格式（注意缩进和冒号后的空格）
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true  # 注意缩进与父级保持一致
+  support-methods-arguments: true
+  params: count=countSql

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.mapper.ForumLikeMapper">
+
+    <insert id="insert" parameterType="com.edu.entity.ForumLike">
+        INSERT INTO forum_like (
+            post_id, reply_id, user_id, create_time
+        ) VALUES (
+                     #{postId}, #{replyId}, #{userId}, NOW()
+                 )
+    </insert>
+
+    <delete id="deleteByPostAndUser">
+        DELETE FROM forum_like
+        WHERE post_id = #{postId} AND user_id = #{userId}
+    </delete>
+
+    <delete id="deleteByReplyAndUser">
+        DELETE FROM forum_like
+        WHERE reply_id = #{replyId} AND user_id = #{userId}
+    </delete>
+
+    <select id="selectByPostAndUser" resultType="com.edu.entity.ForumLike">
+        SELECT * FROM forum_like
+        WHERE post_id = #{postId} AND user_id = #{userId}
+    </select>
+
+    <select id="selectByReplyAndUser" resultType="com.edu.entity.ForumLike">
+        SELECT * FROM forum_like
+        WHERE reply_id = #{replyId} AND user_id = #{userId}
+    </select>
+</mapper>

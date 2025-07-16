@@ -5,14 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Chapter {
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
 
+    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
     private long id;
     private Long courseId;
     private String title;
@@ -23,10 +27,6 @@ public class Chapter {
     private Integer estimatedTime;
     private Boolean isRequired;
 
-    // 关联课程
-    private Course course;
 
-    // 关联学习资源
-    private List<LearningResource> resources;
 
 }

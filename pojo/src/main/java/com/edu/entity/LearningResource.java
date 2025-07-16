@@ -1,21 +1,27 @@
 package com.edu.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
 public class LearningResource {
-    private long id;
-    private Long courseId;
-    private Long chapterId;
+    private Long id;
+    private Integer resourceType;
     private String title;
     private String description;
-    private Integer resourceType;
     private String url;
-    private Integer size;
+    private Long size;
     private Integer duration;
     private Integer sortOrder;
-
-    // 关联课程
-    private Course course;
-
-    // 关联章节
-    private Chapter chapter;
-
+    private Long uploaderId;
+    private Long courseId;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
 }

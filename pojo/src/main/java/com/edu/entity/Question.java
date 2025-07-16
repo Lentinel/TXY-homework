@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Builder
@@ -20,7 +21,8 @@ public class Question {
     private Integer difficulty;
     private Integer score;
     private Long creatorId;
-
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     // 关联考试
     private List<Exam> exams;
 }

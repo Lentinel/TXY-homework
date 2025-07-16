@@ -7,12 +7,12 @@ import java.util.Date;
 public class UserRegisterDTO {
     private String username;
     private String passwordHash;
-    private String comfirmPasswordHash;
+    private String comfirmPassword;
     private String email;
     private String phone;
     private String fullName;
     private String avatarUrl;
     private Integer gender;
     private Date birthday;
-    private Integer role;
+    private String role;
 }

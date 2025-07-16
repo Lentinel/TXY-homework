@@ -1,13 +1,13 @@
+# 开发环境配置
 edu:
   datasource:
-
     host: localhost
     port: 3306
     database: edu_sys
     username: root
     password: a1b2c3d4e5
-  alioss:
-    bucket-name: sky-take-out-kirin
-    access-key-secret: QDNUdeIFth8YLjEfEFqeQlRX9ZVVXl
-    access-key-id: LTAI5t7LAujZquTbvQfGy5ny
+  alioss:  # 注意：属性名使用小写+连字符，与代码中的@Value对应
     endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id: LTAI5t7LAujZquTbvQfGy5ny  # 与@Value("${edu.alioss.access-key-id}")匹配
+    access-key-secret: QDNUdeIFth8YLjEfEFqeQlRX9ZVVXl  # 与@Value("${edu.alioss.access-key-secret}")匹配
+    bucket-name: sky-take-out-kirin  # 与@Value("${edu.alioss.bucket-name}")匹配

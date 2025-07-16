@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.mapper.DiscussionReplyMapper">
+
+    <resultMap id="ReplyDetailMap" type="com.edu.entity.DiscussionReply">
+        <id property="id" column="id" />
+        <result property="discussionId" column="discussion_id" />
+        <result property="parentId" column="parent_id" />
+        <result property="authorId" column="author_id" />
+        <result property="content" column="content" />
+        <result property="isBest" column="is_best" />
+        <result property="likeCount" column="like_count" />
+        <result property="status" column="status" />
+        <result property="createTime" column="create_time" />
+
+        <!-- 关联作者信息 -->
+        <association property="author" javaType="com.edu.entity.User">
+            <id property="id" column="user_id" />
+            <result property="username" column="username" />
+            <result property="name" column="full_name" />
+            <result property="avatarUrl" column="avatar_url" />
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.edu.entity.DiscussionReply">
+        INSERT INTO discussion_reply
+        (discussion_id, parent_id, author_id, content, is_best, like_count, status, create_time)
+        VALUES
+            (#{discussionId}, #{parentId}, #{authorId}, #{content}, #{isBest}, #{likeCount}, #{status}, #{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.edu.entity.DiscussionReply">
+        UPDATE discussion_reply
+        SET discussion_id = #{discussionId},
+            parent_id = #{parentId},
+            author_id = #{authorId},
+            content = #{content},
+            is_best = #{isBest},
+            like_count = #{likeCount},
+            status = #{status},
+            create_time = #{createTime}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.edu.entity.DiscussionReply">
+        SELECT * FROM discussion_reply WHERE id = #{id}
+    </select>
+
+    <select id="selectByDiscussionId" resultMap="ReplyDetailMap">
+        SELECT
+            r.*,
+            u.id AS user_id,
+            u.username,
+            u.full_name,
+            u.avatar_url
+        FROM discussion_reply r
+                 LEFT JOIN user u ON r.author_id = u.id
+        WHERE r.discussion_id = #{discussionId}
+          AND r.status = 1
+        ORDER BY r.is_best DESC, r.create_time ASC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <update id="markBestReply">
+        UPDATE discussion_reply
+        SET is_best = 1
+        WHERE id = #{replyId}
+    </update>
+
+    <update id="cancelBestReply">
+        UPDATE discussion_reply
+        SET is_best = 0
+        WHERE discussion_id = #{discussionId}
+    </update>
+
+    <update id="incrementLikeCount">
+        UPDATE discussion_reply
+        SET like_count = like_count + 1
+        WHERE id = #{replyId}
+    </update>
+
+    <update id="decrementLikeCount">
+        UPDATE discussion_reply
+        SET like_count = like_count - 1
+        WHERE id = #{replyId}
+    </update>
+
+</mapper>

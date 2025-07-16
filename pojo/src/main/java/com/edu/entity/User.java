@@ -1,5 +1,6 @@
 package com.edu.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +15,10 @@ import java.util.Date;
 @Data
 public class User {
     private long id;
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
     private String username;
     private String passwordHash;
@@ -30,6 +31,6 @@ public class User {
     private Integer userStatus;
     private LocalDateTime lastLoginAt;
 
-    // 用户角色关联
+    // 用户角色关联 0学生 1教师 2管理员
     private Integer role;
 }
