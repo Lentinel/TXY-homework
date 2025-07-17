@@ -1,11 +1,13 @@
 package com.edu.service.impl;
 
 import com.edu.Exception.LoginException;
-import com.edu.Exception.PasswordErrorException;
 import com.edu.Exception.RegisterErrorException;
 import com.edu.constant.MessageConstant;
 import com.edu.constant.UserTypeConstant;
-import com.edu.dto.*;
+import com.edu.dto.UserAdminUpdateDTO;
+import com.edu.dto.UserLoginDTO;
+import com.edu.dto.UserPageQueryDTO;
+import com.edu.dto.UserRegisterDTO;
 import com.edu.entity.User;
 import com.edu.mapper.UserMapper;
 import com.edu.result.PageResult;
@@ -62,15 +64,16 @@ public class UserServiceImpl implements UserService {
     {
 
         String password=userRegisterDTO.getPasswordHash();
-        String confirmPassword=userRegisterDTO.getComfirmPassword();
+
+
 
         password= DigestUtils.md5DigestAsHex(password.getBytes());
-        confirmPassword=DigestUtils.md5DigestAsHex(confirmPassword.getBytes());
+
         User existingUser = userMapper.getByUsername(userRegisterDTO.getUsername());
         if (existingUser != null) {
             throw new RegisterErrorException("用户名已存在");
         }
-        if(password.equals(confirmPassword))
+
         {
             if(userRegisterDTO.getPhone()!= null &&userRegisterDTO.getUsername()!=null) {
                 {
@@ -96,10 +99,7 @@ public class UserServiceImpl implements UserService {
                 throw new RegisterErrorException(MessageConstant.NESSESARY_RIGESTER_INFO_NOT_FOUND);
             }
         }
-        else
-        {
-            throw new PasswordErrorException(MessageConstant.CONFIRMED_PASSWORD_NOT_EQUAL);
-        }
+
     }
 
     @Override

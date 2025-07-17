@@ -4,52 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eac32454-4c49-4b00-9664-ab1a7f2a9a78" name="更改" comment="3">
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/ExamQuestionDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/QuestionCreateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/QuestionUpdateDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/ExamQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ExamResultVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ExamVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ExamWithQuestionsVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/QuestionResultVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ReviewDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/SubmitAnswersDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/UserExamRecordVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/StudentExamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/QuestionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/TeacherExamController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ExamQuestionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/QuestionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/UserExamRecordMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/QuestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/StudentExamService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/ExamServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/QuestionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/StudentExamServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ExamQuestionMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ExamRecordMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/QuestionMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="eac32454-4c49-4b00-9664-ab1a7f2a9a78" name="更改" comment="4">
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/dto/VideoProgressDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/StudentLearningRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Video.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/ChapterLearningVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/CourseLearningVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/LearningRecordVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/vo/VideoLearningVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/LearningRecordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/StudentLearningRecordMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/VideoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/LearningRecordService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/LearningRecordServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Education-System.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/edu/utils/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/conf/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx-1.28.0/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/logs/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nginx-1.28.0/logs/nginx.pid" beforeDir="false" afterPath="$PROJECT_DIR$/nginx-1.28.0/logs/nginx.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/src/main/java/com/edu/entity/UserExamRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/config/WebMvcConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/StudentCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/student/StudentCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/TeacherCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/controller/teacher/TeacherCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ExamMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ExamMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/ExamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CommentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/resources/Mapper/ExamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ExamMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ChapterMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/mapper/ChapterMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/edu/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/Mapper/ChapterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/Mapper/ChapterMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +39,8 @@
         <option value="spring-beans.schema" />
         <option value="Enum" />
         <option value="Vue Composition API Component" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -91,63 +64,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.EduApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.SkyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JAVA/Education-System/platform/src&quot;,
-    &quot;mysql-explain.enableMySQLExplain&quot;: &quot;true&quot;,
-    &quot;mysql-explain.existMysqlJar&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.statistic.project.settings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.EduApplication.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "true",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.EduApplication.executor": "Run",
+    "Spring Boot.SkyApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/JAVA/Education-System/platform/src/htmlTest",
+    "mysql-explain.enableMySQLExplain": "true",
+    "mysql-explain.existMysqlJar": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDK",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\IntelliJ IDEA 2023.3.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.EduApplication.executor": "Run"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql_aurora_aws&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql_aurora_aws"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.edu.mapper" />
       <recent name="com.edu.service" />
       <recent name="com.edu.entity" />
       <recent name="com.edu.vo" />
       <recent name="com.edu.dto" />
-      <recent name="com.edu.mapper" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JAVA\Education-System\platform\src" />
@@ -249,7 +222,10 @@
       <workItem from="1752656437729" duration="6838000" />
       <workItem from="1752663950985" duration="1141000" />
       <workItem from="1752670961695" duration="2131000" />
-      <workItem from="1752673852481" duration="536000" />
+      <workItem from="1752673852481" duration="1990000" />
+      <workItem from="1752716761741" duration="2043000" />
+      <workItem from="1752718921110" duration="1514000" />
+      <workItem from="1752720657846" duration="2381000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -267,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752649121591</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4">
+      <option name="closed" value="true" />
+      <created>1752674417483</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752674417483</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +315,8 @@
     <MESSAGE value="1" />
     <MESSAGE value="2" />
     <MESSAGE value="3" />
-    <option name="LAST_COMMIT_MESSAGE" value="3" />
+    <MESSAGE value="4" />
+    <option name="LAST_COMMIT_MESSAGE" value="4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

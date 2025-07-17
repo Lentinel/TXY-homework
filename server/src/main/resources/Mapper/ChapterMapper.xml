@@ -53,4 +53,8 @@
     <select id="pageQuery" resultType="com.edu.entity.Chapter">
         select * from chapter where course_id= #{courseId} order by sort_order desc
     </select>
+
+    <select id="queryById" resultType="com.edu.entity.Chapter">
+        select * from chapter where course_id=#{courseId}
+    </select>
 </mapper>

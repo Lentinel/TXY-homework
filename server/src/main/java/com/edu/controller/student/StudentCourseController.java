@@ -5,6 +5,8 @@ import com.edu.entity.Course;
 import com.edu.result.PageResult;
 import com.edu.result.Result;
 import com.edu.service.CourseService;
+import com.edu.service.LearningRecordService;
+import com.edu.vo.CourseLearningVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class StudentCourseController {
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private LearningRecordService learningRecordService;
     @GetMapping("/categories")//OK
     public Result<PageResult> categories(@RequestBody CategoryPageQueryDTO categoryPageQueryDTO)
     {
@@ -67,6 +71,18 @@ public class StudentCourseController {
         PageResult pageResult=courseService.examsQuery(examPageQueryDTO);
         return Result.success(pageResult);
     }
+    /**
+     * 查询学生某课程的学习记录（包含章节和视频进度）
+     */
+    @GetMapping("/course/record")
+    public Result<CourseLearningVO> getCourseLearningRecord(
+            @RequestParam Long userId,
+            @RequestParam Long courseId
+    ) {
+        CourseLearningVO result = learningRecordService.getCourseLearningDetail(userId, courseId);
+        return Result.success(result);
+    }
+
 
 
 
